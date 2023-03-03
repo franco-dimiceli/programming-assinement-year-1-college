@@ -1,16 +1,32 @@
-#
-#
-# ## importing custom tkinter ##
-#
+
+## importing custom tkinter ##
+
 import customtkinter
-import tkinter as tk
+# import tkinter as tk
 from tkinter import messagebox
-#
+
 class my_gui:
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
     ## functions ##
+
+## frame for edit events ##
+
+    def edit_events_content_frame(self, label_text, ):
+
+        self.edit_events_main_frame = customtkinter.CTkFrame(self.root, width=1300)
+
+        self.edit_events_main_frame.rowconfigure(0, weight=1)
+        self.edit_events_main_frame.rowconfigure(1, weight=1)
+        self.edit_events_main_frame.rowconfigure(2, weight=1)
+        self.edit_events_main_frame.columnconfigure(0, weight=1)
+
+        self.event_label = customtkinter.CTkLabel(self.edit_events_main_frame, text=label_text, font=("roboto", 18)).grid(row=0, pady=10, padx=30, )
+
+        self.event_entry = customtkinter.CTkEntry(self.edit_events_main_frame, width=500).grid(row=1, pady=10, )
+
+        return self.edit_events_main_frame
 
 ## switching navigation frame functions ##
 
@@ -33,6 +49,7 @@ class my_gui:
         self.display_scoreboard_frame_navigation.pack_forget()
         self.edit_teams_and_individuals_content_frame.pack_forget()
         self.display_scoreboard_content_frame.pack_forget()
+        self.edit_events_main_frame.pack_forget()
 
     def switch_to_edit_teams_and_individuals_frame(self):
 
@@ -43,6 +60,7 @@ class my_gui:
         self.event_menu_frame_navigation.pack_forget()
         self.display_scoreboard_frame_navigation.pack_forget()
         self.display_scoreboard_content_frame.pack_forget()
+        self.edit_events_main_frame.pack_forget()
 
     def switch_to_display_scoreboard_frame(self):
 
@@ -53,6 +71,7 @@ class my_gui:
         self.event_menu_frame_navigation.pack_forget()
         self.teams_and_individuals_frame_navigation.pack_forget()
         self.edit_teams_and_individuals_content_frame.pack_forget()
+        self.edit_events_main_frame.pack_forget()
 
     def close_the_program(self):
 
@@ -72,7 +91,7 @@ class my_gui:
 
     ## gets rid of the close, minimise and maximize options at the top 1 = get rid, 0 = its still there ##
 
-        self.root.overrideredirect(0)
+        self.root.overrideredirect(True)
 
         self.msg = messagebox
 
@@ -135,6 +154,12 @@ class my_gui:
 ##        ##------------------------------------------------------------------------------------------------------------
 
         ## events menu content ##
+
+        self.edit_events_content_frame("Event 1").pack()
+        self.edit_events_content_frame("Event 2").pack()
+        self.edit_events_content_frame("Event 3").pack()
+        self.edit_events_content_frame("Event 4").pack()
+        self.edit_events_content_frame("Event 5").pack()
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
