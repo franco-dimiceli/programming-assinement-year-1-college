@@ -6,7 +6,7 @@ import customtkinter
 import tkinter as tk
 from tkinter import messagebox
 #
-class my_gui():
+class my_gui:
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
@@ -21,6 +21,8 @@ class my_gui():
         self.navigation_button_frame.pack_forget()
         self.teams_and_individuals_frame_navigation.pack_forget()
         self.display_scoreboard_frame_navigation.pack_forget()
+        self.edit_teams_and_individuals_content_frame.pack_forget()
+        self.display_scoreboard_content_frame.pack_forget()
 
     def switch_to_start_menu_frame(self):
 
@@ -29,22 +31,28 @@ class my_gui():
         self.event_menu_frame_navigation.pack_forget()
         self.teams_and_individuals_frame_navigation.pack_forget()
         self.display_scoreboard_frame_navigation.pack_forget()
+        self.edit_teams_and_individuals_content_frame.pack_forget()
+        self.display_scoreboard_content_frame.pack_forget()
 
     def switch_to_edit_teams_and_individuals_frame(self):
 
         self.teams_and_individuals_frame_navigation.pack(fill="x", )
+        self.edit_teams_and_individuals_content_frame.pack(pady=80)
 
         self.navigation_button_frame.pack_forget()
         self.event_menu_frame_navigation.pack_forget()
         self.display_scoreboard_frame_navigation.pack_forget()
+        self.display_scoreboard_content_frame.pack_forget()
 
     def switch_to_display_scoreboard_frame(self):
 
         self.display_scoreboard_frame_navigation.pack(fill="x", )
+        self.display_scoreboard_content_frame.pack(pady=80)
 
         self.navigation_button_frame.pack_forget()
         self.event_menu_frame_navigation.pack_forget()
         self.teams_and_individuals_frame_navigation.pack_forget()
+        self.edit_teams_and_individuals_content_frame.pack_forget()
 
     def close_the_program(self):
 
@@ -60,7 +68,7 @@ class my_gui():
 
         self.root.title("scoring system")
 
-        self.root.geometry("900x800")
+        self.root.geometry("1300x1000")
 
     ## gets rid of the close, minimise and maximize options at the top 1 = get rid, 0 = its still there ##
 
@@ -116,13 +124,13 @@ class my_gui():
 
         self.display_scoreboard_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nDisplay scoreboard\n", font=("roboto", 20), height=0, command=self.switch_to_display_scoreboard_frame, hover_color="#02557a").grid(row=0, column=0, sticky=customtkinter.W + customtkinter.E)
 
-        self.edit_teams_and_individuals_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nEdit teams and individuals\n", font=("roboto", 20), height=2, hover_color="#02557a").grid(row=0, column=1, sticky=customtkinter.W + customtkinter.E)
+        self.edit_teams_and_individuals_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nEdit teams and individuals\n", font=("roboto", 20), height=2, command=self.switch_to_edit_teams_and_individuals_frame, hover_color="#02557a").grid(row=0, column=1, sticky=customtkinter.W + customtkinter.E)
 
         self.start_menu_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nStart menu\n", font=("roboto", 20), height=0, command=self.switch_to_start_menu_frame, hover_color="#02557a").grid(row=0, column=2, sticky=customtkinter.W + customtkinter.E)
 
         self.event_menu_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nEdit events\n", font=("roboto", 20), height=0, command=self.switch_to_events_menu_frame, fg_color="#02557a", hover_color="#02557a").grid(row=0, column=3, sticky=customtkinter.W + customtkinter.E)
 
-        self.back_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nBack\n", font=("roboto", 20), height=0, hover_color="#02557a").grid(row=0, column=4, sticky=customtkinter.W + customtkinter.E)
+        self.close_program_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nClose program\n", font=("roboto", 20), height=0, command=self.close_the_program, hover_color="#02557a").grid(row=0, column=4, sticky=customtkinter.W + customtkinter.E,)
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
@@ -154,6 +162,15 @@ class my_gui():
 
     ## edit teams and individuals content ##
 
+        self.edit_teams_and_individuals_content_frame = customtkinter.CTkFrame(self.root, fg_color="#262626", height=400, width=400)
+
+        self.edit_teams_and_individuals_content_frame.columnconfigure(0, weight=0, )
+        self.edit_teams_and_individuals_content_frame.columnconfigure(1, weight=0, )
+
+        self.edit_individuals_button = customtkinter.CTkButton(self.edit_teams_and_individuals_content_frame, text="Edit individuals", font=("roboto", 20), height=600, width=400, hover_color="#02557a").grid(row=0, column=0, padx=100, pady=50)
+
+        self.edit_individuals_button = customtkinter.CTkButton(self.edit_teams_and_individuals_content_frame, text="Edit teams", font=("roboto", 20), height=600, width=400, hover_color="#02557a").grid(row=0, column=1, padx=100, pady=50)
+
 ##        ##------------------------------------------------------------------------------------------------------------
 
     ## display scoreboard navigation ##
@@ -179,6 +196,15 @@ class my_gui():
 ##        ##------------------------------------------------------------------------------------------------------------
 
     ## display scoreboard content ##
+
+        self.display_scoreboard_content_frame = customtkinter.CTkFrame(self.root, fg_color="#262626", height=400, width=400)
+
+        self.display_scoreboard_content_frame.columnconfigure(0, weight=0, )
+        self.display_scoreboard_content_frame.columnconfigure(1, weight=0, )
+
+        self.edit_individuals_button = customtkinter.CTkButton(self.display_scoreboard_content_frame, text="Edit individuals", font=("roboto", 20), height=600, width=400, hover_color="#02557a").grid(row=0, column=0, padx=100, pady=50)
+
+        self.edit_teams_button = customtkinter.CTkButton(self.display_scoreboard_content_frame, text="Edit teams", font=("roboto", 20), height=600, width=400, hover_color="#02557a").grid(row=0, column=1, padx=100, pady=50)
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
