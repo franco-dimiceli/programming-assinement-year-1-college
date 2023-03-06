@@ -4,7 +4,6 @@
 import customtkinter
 # import tkinter as tk
 from tkinter import messagebox
-
 class my_gui:
 
 ##        ##------------------------------------------------------------------------------------------------------------
@@ -15,7 +14,7 @@ class my_gui:
 
     def edit_events_content_frame(self, label_text, ):
 
-        self.edit_events_main_frame = customtkinter.CTkFrame(self.root, width=1300)
+        self.edit_events_main_frame = customtkinter.CTkFrame(self.new_frame, )
 
         self.edit_events_main_frame.rowconfigure(0, weight=1)
         self.edit_events_main_frame.rowconfigure(1, weight=1)
@@ -27,12 +26,31 @@ class my_gui:
         self.event_entry = customtkinter.CTkEntry(self.edit_events_main_frame, width=500).grid(row=1, pady=10, )
 
         return self.edit_events_main_frame
+    def edit_events_content_frame_func(self):
+
+        self.edit_events_content_frame("Event 1").place(x=50, y=25)
+        self.edit_events_content_frame("Event 2").place(x=50, y=150)
+        self.edit_events_content_frame("Event 3").place(x=50, y=275)
+        self.edit_events_content_frame("Event 4").place(x=50, y=400)
+        self.edit_events_content_frame("Event 5").place(x=50, y=525)
+
+##      ##--------------------------------------------------------------------------------------------------------------
+
+    ## edit teams and individuals frame ##
+
+    def edit_teams_content_frame(self, label_text):
+
+        self.edit_teams_main_frame = customtkinter.CTkFrame(self.editing_teams_frame, )
+
+        self.place_label= customtkinter.CTkLabel(self.edit_teams_main_frame, )
 
 ## switching navigation frame functions ##
 
     def switch_to_events_menu_frame(self):
 
         self.event_menu_frame_navigation.pack(fill="x", )
+        self.edit_events_content_frame_func()
+        self.new_frame.place(x=100, y=100)
 
         self.navigation_button_frame.pack_forget()
         self.teams_and_individuals_frame_navigation.pack_forget()
@@ -49,8 +67,7 @@ class my_gui:
         self.display_scoreboard_frame_navigation.pack_forget()
         self.edit_teams_and_individuals_content_frame.pack_forget()
         self.display_scoreboard_content_frame.pack_forget()
-        self.edit_events_main_frame.pack_forget()
-
+        self.new_frame.place_forget()
     def switch_to_edit_teams_and_individuals_frame(self):
 
         self.teams_and_individuals_frame_navigation.pack(fill="x", )
@@ -60,7 +77,7 @@ class my_gui:
         self.event_menu_frame_navigation.pack_forget()
         self.display_scoreboard_frame_navigation.pack_forget()
         self.display_scoreboard_content_frame.pack_forget()
-        self.edit_events_main_frame.pack_forget()
+        self.new_frame.place_forget()
 
     def switch_to_display_scoreboard_frame(self):
 
@@ -71,8 +88,7 @@ class my_gui:
         self.event_menu_frame_navigation.pack_forget()
         self.teams_and_individuals_frame_navigation.pack_forget()
         self.edit_teams_and_individuals_content_frame.pack_forget()
-        self.edit_events_main_frame.pack_forget()
-
+        self.new_frame.place_forget()
     def close_the_program(self):
 
         if self.msg.askyesno(title="Exit?", message="Are you sure you want to leave?", ):
@@ -155,11 +171,7 @@ class my_gui:
 
         ## events menu content ##
 
-        self.edit_events_content_frame("Event 1").pack()
-        self.edit_events_content_frame("Event 2").pack()
-        self.edit_events_content_frame("Event 3").pack()
-        self.edit_events_content_frame("Event 4").pack()
-        self.edit_events_content_frame("Event 5").pack()
+        self.new_frame = customtkinter.CTkFrame(self.root, width=600, height=650, )
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
