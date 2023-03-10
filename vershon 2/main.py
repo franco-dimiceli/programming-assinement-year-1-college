@@ -1,5 +1,5 @@
 
-## importing custom tkinter and message box ##
+## importing custom tkinter, tkinter and message box ##
 
 import customtkinter
 # import tkinter as tk
@@ -21,7 +21,7 @@ class my_gui:
         self.edit_events_main_frame.rowconfigure(2, weight=1)
         self.edit_events_main_frame.columnconfigure(0, weight=1)
 
-        self.event_label = customtkinter.CTkLabel(self.edit_events_main_frame, text=label_text, font=("roboto", 18), ).grid(row=0, pady=10, padx=30, )
+        self.event_label = customtkinter.CTkLabel(self.edit_events_main_frame, text=label_text, font=self.the_font_small, ).grid(row=0, pady=10, padx=30, )
 
         self.event_entry = customtkinter.CTkEntry(self.edit_events_main_frame, width=500).grid(row=1, pady=10, )
 
@@ -43,11 +43,11 @@ class my_gui:
 
         self.events_1_to_5_main_frame = customtkinter.CTkFrame(self.root, width=850, height=800, )
 
-        self.event_1_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, text="Event 1", font=("roboto", 18), fg_color="#002542", hover_color="#25b2a1", height=300, width=225, command=self.switch_to_event_1_frame_teams_menu).grid(row=0, column=0, pady=10, padx=10)
-        self.event_2_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, text="Event 2", font=("roboto", 18), fg_color="#002542", hover_color="#25b2a1", height=300, width=225 ).grid(row=0, column=1, pady=10, padx=10)
-        self.event_3_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, text="Event 3", font=("roboto", 18), fg_color="#002542", hover_color="#25b2a1", height=300, width=225 ).grid(row=0, column=2, pady=10, padx=10)
-        self.event_4_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, text="Event 4", font=("roboto", 18), fg_color="#002542", hover_color="#25b2a1", height=300, width=225 ).grid(row=0, column=3, pady=10, padx=10)
-        self.event_5_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, text="Event 5", font=("roboto", 18), fg_color="#002542", hover_color="#25b2a1", height=300, width=225 ).grid(row=0, column=4, pady=10, padx=10)
+        self.event_1_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, text="Event 1", font=self.the_font_small, fg_color="#002542", hover_color="#25b2a1", height=300, width=225, command=self.switch_to_event_1_frame_teams_menu).grid(row=0, column=0, pady=10, padx=10)
+        self.event_2_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, text="Event 2", font=self.the_font_small, fg_color="#002542", hover_color="#25b2a1", height=300, width=225 ).grid(row=0, column=1, pady=10, padx=10)
+        self.event_3_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, text="Event 3", font=self.the_font_small, fg_color="#002542", hover_color="#25b2a1", height=300, width=225 ).grid(row=0, column=2, pady=10, padx=10)
+        self.event_4_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, text="Event 4", font=self.the_font_small, fg_color="#002542", hover_color="#25b2a1", height=300, width=225 ).grid(row=0, column=3, pady=10, padx=10)
+        self.event_5_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, text="Event 5", font=self.the_font_small, fg_color="#002542", hover_color="#25b2a1", height=300, width=225 ).grid(row=0, column=4, pady=10, padx=10)
 
         return self.events_1_to_5_main_frame
 
@@ -69,11 +69,11 @@ class my_gui:
         self.edit_teams_main_frame.rowconfigure(5, weight=1)
         self.edit_teams_main_frame.rowconfigure(6, weight=1)
 
-        self.place_label = customtkinter.CTkLabel(self.edit_teams_main_frame, text=label_text, font=("roboto", 18), ).grid(column=0, row=0, pady=10)
+        self.place_label = customtkinter.CTkLabel(self.edit_teams_main_frame, text=label_text, font=self.the_font_small, ).grid(column=0, row=0, pady=10)
 
         self.team_entry = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter team name", font=("roboto", 16), height=35, ).grid(column=0, row=1, pady=10, padx=10, )
 
-        self.individual_text_box_1 = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter individual 1", font=("roboto", 14), width=150, height=35, ).grid(column=1, row=2, pady=10, padx=10)
+        self.individual_text_box_1 = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter individual 1", font=("roboto", 14), width=150, height=35, textvariable=self.student_num_variables,).grid(column=1, row=2, pady=10, padx=10)
         self.individual_text_box_2 = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter individual 2", font=("roboto", 14), width=150, height=35, ).grid(column=1, row=3, pady=10, padx=10)
         self.individual_text_box_3 = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter individual 3", font=("roboto", 14), width=150, height=35, ).grid(column=1, row=4, pady=10, padx=10)
         self.individual_text_box_4 = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter individual 4", font=("roboto", 14), width=150, height=35, ).grid(column=1, row=5, pady=10, padx=10)
@@ -88,15 +88,46 @@ class my_gui:
         self.edit_teams_content_frame("2nd place").place(x=500, y=25)
         self.edit_teams_content_frame("4th place").place(x=500, y=415)
 
-##      ##--------------------------------------------------------------------------------------------------------------
-
-    ## edit events for individuals frame content ##
-
-    def edit_individuals_content_frame(self):
-
-        self.edit_individuals_main_content = customtkinter.CTkFrame(self.indivduals_content_external_frame, )
-
-        self.individual_1_entry = customtkinter.CTkEntry(self.edit_individuals_main_content, )
+    ## editing individuals frame #
+    # def edit_individuals_frame(self, ):
+    #
+    #     self.edit_individuals_event_1_1_menu = customtkinter.CTkFrame(self.edit_individuals_event_1_menu)
+    #
+    #     self.individual_entry_1 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=0, padx=10, pady=10, )
+    #     self.first_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="1st place", font=self.the_font_small, ).grid(column=0, row=0, padx=10, pady=10, )
+    #
+    #     self.individual_entry_2 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=1, padx=10, pady=10, )
+    #     self.second_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="2nd place", font=self.the_font_small, ).grid(column=0, row=1, padx=10, pady=10, )
+    #
+    #     self.individual_entry_3 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=2, padx=10, pady=10, )
+    #     self.third_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="3rd place", font=self.the_font_small, ).grid(column=0, row=2, padx=10, pady=10, )
+    #
+    #     self.individual_entry_4 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=3, padx=10, pady=10, )
+    #     self.forth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="4th place", font=self.the_font_small, ).grid(column=0, row=3, padx=10, pady=10, )
+    #
+    #     self.individual_entry_5 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=4, padx=10, pady=10, )
+    #     self.fifth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="5th place", font=self.the_font_small, ).grid(column=0, row=4, padx=10, pady=10, )
+    #
+    #     self.individual_entry_6 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=5, padx=10, pady=10, )
+    #     self.sixth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="6th place", font=self.the_font_small, ).grid(column=0, row=5, padx=10, pady=10, )
+    #
+    #     self.individual_entry_7 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=6, padx=10, pady=10, )
+    #     self.seventh_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="7th place", font=self.the_font_small, ).grid(column=0, row=6, padx=10, pady=10, )
+    #
+    #     self.individual_entry_8 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=7, padx=10, pady=10, )
+    #     self.eighth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="8th place", font=self.the_font_small, ).grid(column=0, row=7, padx=10, pady=10, )
+    #
+    #     self.individual_entry_9 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=8, padx=10, pady=10, )
+    #     self.ninth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="9th place", font=self.the_font_small, ).grid(column=0, row=8, padx=10, pady=10, )
+    #
+    #     self.individual_entry_10 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=9, padx=10, pady=10, )
+    #     self.tenth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="10th place", font=self.the_font_small, ).grid(column=0, row=9, padx=10, pady=10, )
+    #
+    #     return self.edit_individuals_event_1_1_menu
+    #
+    # def edit_individuals_frame_func(self):
+    #
+    #     self.edit_individuals_frame().pack()
 
 ##      ##--------------------------------------------------------------------------------------------------------------
 
@@ -176,6 +207,23 @@ class my_gui:
 
 ##      ##--------------------------------------------------------------------------------------------------------------
 
+    ## data validation ##
+
+    def check_student_num_input(self):
+
+        self.user_input = self.student_num_variables.get()
+
+        if self.user_input == "":
+            print("you must input 6 numbers. 162289, for example. and leave 000000 if no one is entering")
+        elif self.user_input > 6:
+            print("cant have more then 6 numbers")
+        elif self.user_input < 6:
+            print(self.student_num_variables.get(), "must have less then 6 numbers")
+        elif self.user_input == self.student_num_variables.get():
+            print("cant have 2 students in the same team")
+
+##      ##--------------------------------------------------------------------------------------------------------------
+
     def __init__(self):
 
     ## initialising the GUI ##
@@ -194,6 +242,10 @@ class my_gui:
 
         customtkinter.set_appearance_mode("dark")
 
+        self.the_font = customtkinter.CTkFont(family="roboto", size=20, weight="bold")
+
+        self.the_font_small = customtkinter.CTkFont(family="roboto", size=18, weight="bold")
+
     ## frames ##
 
 ##        ##------------------------------------------------------------------------------------------------------------
@@ -208,15 +260,15 @@ class my_gui:
         self.navigation_button_frame.columnconfigure(3, weight=1, )
         self.navigation_button_frame.columnconfigure(4, weight=1, )
 
-        self.display_scoreboard_button = customtkinter.CTkButton(self.navigation_button_frame, text="\nDisplay scoreboard\n", font=("roboto", 20), height=0, command=self.switch_to_display_scoreboard_frame, hover_color="#25b2a1", fg_color="#002542", ).grid(row=0, column=0, sticky=customtkinter.W + customtkinter.E,)
+        self.display_scoreboard_button = customtkinter.CTkButton(self.navigation_button_frame, text="\nDisplay scoreboard\n", font=self.the_font, height=0, command=self.switch_to_display_scoreboard_frame, hover_color="#25b2a1", fg_color="#002542", ).grid(row=0, column=0, sticky=customtkinter.W + customtkinter.E,)
 
         self.edit_teams_and_individuals_button = customtkinter.CTkButton(self.navigation_button_frame, text="\nEdit teams and individuals\n", font=("roboto", 20), height=0, command=self.switch_to_edit_teams_and_individuals_frame, fg_color="#002542", hover_color="#25b2a1").grid(row=0, column=1, sticky=customtkinter.W + customtkinter.E)
 
-        self.start_menu_button = customtkinter.CTkButton(self.navigation_button_frame, text="\nStart menu\n", font=("roboto", 20), height=0, command=self.switch_to_start_menu_frame, fg_color="#25b2a1", hover_color="#25b2a1").grid(row=0, column=2, sticky=customtkinter.W + customtkinter.E)
+        self.start_menu_button = customtkinter.CTkButton(self.navigation_button_frame, text="\nStart menu\n", font=self.the_font, height=0, command=self.switch_to_start_menu_frame, fg_color="#25b2a1", hover_color="#25b2a1").grid(row=0, column=2, sticky=customtkinter.W + customtkinter.E)
 
-        self.event_menu_button = customtkinter.CTkButton(self.navigation_button_frame, text="\nEdit events\n", font=("roboto", 20), height=0, command=self.switch_to_events_menu_frame, fg_color="#002542", hover_color="#25b2a1").grid(row=0, column=3, sticky=customtkinter.W + customtkinter.E)
+        self.event_menu_button = customtkinter.CTkButton(self.navigation_button_frame, text="\nEdit events\n", font=self.the_font, height=0, command=self.switch_to_events_menu_frame, fg_color="#002542", hover_color="#25b2a1").grid(row=0, column=3, sticky=customtkinter.W + customtkinter.E)
 
-        self.close_program_button = customtkinter.CTkButton(self.navigation_button_frame, text="\nClose program\n", font=("roboto", 20), height=0, command=self.close_the_program, fg_color="#002542", hover_color="#25b2a1").grid(row=0, column=4, sticky=customtkinter.W + customtkinter.E,)
+        self.close_program_button = customtkinter.CTkButton(self.navigation_button_frame, text="\nClose program\n", font=self.the_font, height=0, command=self.close_the_program, fg_color="#002542", hover_color="#25b2a1").grid(row=0, column=4, sticky=customtkinter.W + customtkinter.E,)
 
         self.navigation_button_frame.pack(fill="x", )
 
@@ -236,15 +288,15 @@ class my_gui:
         self.event_menu_frame_navigation.columnconfigure(3, weight=1, )
         self.event_menu_frame_navigation.columnconfigure(4, weight=1, )
 
-        self.display_scoreboard_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nDisplay scoreboard\n", font=("roboto", 20), height=0, command=self.switch_to_display_scoreboard_frame, hover_color="#02557a", fg_color="#002542").grid(row=0, column=0, sticky=customtkinter.W + customtkinter.E)
+        self.display_scoreboard_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nDisplay scoreboard\n", font=self.the_font, height=0, command=self.switch_to_display_scoreboard_frame, hover_color="#02557a", fg_color="#002542").grid(row=0, column=0, sticky=customtkinter.W + customtkinter.E)
 
-        self.edit_teams_and_individuals_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nEdit teams and individuals\n", font=("roboto", 20), height=2, command=self.switch_to_edit_teams_and_individuals_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=1, sticky=customtkinter.W + customtkinter.E)
+        self.edit_teams_and_individuals_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nEdit teams and individuals\n", font=self.the_font, height=2, command=self.switch_to_edit_teams_and_individuals_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=1, sticky=customtkinter.W + customtkinter.E)
 
-        self.start_menu_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nStart menu\n", font=("roboto", 20), height=0, command=self.switch_to_start_menu_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=2, sticky=customtkinter.W + customtkinter.E)
+        self.start_menu_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nStart menu\n", font=self.the_font, height=0, command=self.switch_to_start_menu_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=2, sticky=customtkinter.W + customtkinter.E)
 
-        self.event_menu_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nEdit events\n", font=("roboto", 20), height=0, command=self.switch_to_events_menu_frame, fg_color="#25b2a1", hover_color="#25b2a1").grid(row=0, column=3, sticky=customtkinter.W + customtkinter.E)
+        self.event_menu_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nEdit events\n", font=self.the_font, height=0, command=self.switch_to_events_menu_frame, fg_color="#25b2a1", hover_color="#25b2a1").grid(row=0, column=3, sticky=customtkinter.W + customtkinter.E)
 
-        self.close_program_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nClose program\n", font=("roboto", 20), height=0, command=self.close_the_program, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=4, sticky=customtkinter.W + customtkinter.E,)
+        self.close_program_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nClose program\n", font=self.the_font, height=0, command=self.close_the_program, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=4, sticky=customtkinter.W + customtkinter.E,)
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
@@ -264,32 +316,45 @@ class my_gui:
         self.teams_and_individuals_frame_navigation.columnconfigure(3, weight=1, )
         self.teams_and_individuals_frame_navigation.columnconfigure(4, weight=1, )
 
-        self.display_scoreboard_button = customtkinter.CTkButton(self.teams_and_individuals_frame_navigation, text="\nDisplay scoreboard\n", font=("roboto", 20), height=0, command=self.switch_to_display_scoreboard_frame, fg_color="#002542", hover_color="#25b2a1").grid(row=0, column=0, sticky=customtkinter.W + customtkinter.E)
+        self.display_scoreboard_button = customtkinter.CTkButton(self.teams_and_individuals_frame_navigation, text="\nDisplay scoreboard\n", font=self.the_font, height=0, command=self.switch_to_display_scoreboard_frame, fg_color="#002542", hover_color="#25b2a1").grid(row=0, column=0, sticky=customtkinter.W + customtkinter.E)
 
-        self.edit_teams_and_individuals_button = customtkinter.CTkButton(self.teams_and_individuals_frame_navigation, text="\nEdit teams and individuals\n", font=("roboto", 20), height=0, command=self.switch_to_edit_teams_and_individuals_frame, fg_color="#25b2a1", hover_color="#25b2a1").grid(row=0, column=1, sticky=customtkinter.W + customtkinter.E)
+        self.edit_teams_and_individuals_button = customtkinter.CTkButton(self.teams_and_individuals_frame_navigation, text="\nEdit teams and individuals\n", font=self.the_font, height=0, command=self.switch_to_edit_teams_and_individuals_frame, fg_color="#25b2a1", hover_color="#25b2a1").grid(row=0, column=1, sticky=customtkinter.W + customtkinter.E)
 
-        self.start_menu_button = customtkinter.CTkButton(self.teams_and_individuals_frame_navigation, text="\nStart menu\n", font=("roboto", 20), height=0, command=self.switch_to_start_menu_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=2, sticky=customtkinter.W + customtkinter.E)
+        self.start_menu_button = customtkinter.CTkButton(self.teams_and_individuals_frame_navigation, text="\nStart menu\n", font=self.the_font, height=0, command=self.switch_to_start_menu_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=2, sticky=customtkinter.W + customtkinter.E)
 
-        self.event_menu_button = customtkinter.CTkButton(self.teams_and_individuals_frame_navigation, text="\nEdit events\n", font=("roboto", 20), height=0, command=self.switch_to_events_menu_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=3, sticky=customtkinter.W + customtkinter.E)
+        self.event_menu_button = customtkinter.CTkButton(self.teams_and_individuals_frame_navigation, text="\nEdit events\n", font=self.the_font, height=0, command=self.switch_to_events_menu_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=3, sticky=customtkinter.W + customtkinter.E)
 
-        self.close_program_button = customtkinter.CTkButton(self.teams_and_individuals_frame_navigation, text="\nClose program\n", font=("roboto", 20), height=0, command=self.close_the_program, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=4, sticky=customtkinter.W + customtkinter.E,)
+        self.close_program_button = customtkinter.CTkButton(self.teams_and_individuals_frame_navigation, text="\nClose program\n", font=self.the_font, height=0, command=self.close_the_program, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=4, sticky=customtkinter.W + customtkinter.E,)
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
-    ## edit teams and individuals content ##
+    ## edit teams and individuals content navigation ##
 
         self.edit_teams_and_individuals_content_frame = customtkinter.CTkFrame(self.root, height=400, width=400)
 
         self.edit_teams_and_individuals_content_frame.columnconfigure(0, weight=0, )
         self.edit_teams_and_individuals_content_frame.columnconfigure(1, weight=0, )
 
-        self.edit_individuals_button = customtkinter.CTkButton(self.edit_teams_and_individuals_content_frame, text="Edit individuals", font=("roboto", 20), height=600, width=400, fg_color="#002542", hover_color="#25b2a1").grid(row=0, column=0, padx=100, pady=50)
+        self.edit_individuals_button = customtkinter.CTkButton(self.edit_teams_and_individuals_content_frame, text="Edit individuals", font=self.the_font, height=600, width=400, fg_color="#002542", hover_color="#25b2a1").grid(row=0, column=0, padx=100, pady=50)
 
-        self.edit_teams_button = customtkinter.CTkButton(self.edit_teams_and_individuals_content_frame, text="Edit teams", font=("roboto", 20), height=600, width=400, hover_color="#25b2a1", fg_color="#002542", command=self.switch_to_edit_teams_menu).grid(row=0, column=1, padx=100, pady=50)
+        self.edit_teams_button = customtkinter.CTkButton(self.edit_teams_and_individuals_content_frame, text="Edit teams", font=self.the_font, height=600, width=400, hover_color="#25b2a1", fg_color="#002542", command=self.switch_to_edit_teams_menu).grid(row=0, column=1, padx=100, pady=50)
 
     ## edit teams menu ##
 
         self.editing_teams_frame = customtkinter.CTkFrame(self.root, width=850, height=800, )
+
+    ## edit teams variables ##
+
+        self.student_num_variables = customtkinter.IntVar()
+
+    ## edit individuals menu ##
+
+    ## edit individuals content ##
+
+        self.edit_individuals_event_1_menu = customtkinter.CTkFrame(self.root, width=850, height=800, )
+
+        # self.edit_individuals_event_1_menu.pack(pady=30)
+        # self.edit_individuals_frame_func()
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
@@ -303,15 +368,15 @@ class my_gui:
         self.display_scoreboard_frame_navigation.columnconfigure(3, weight=1, )
         self.display_scoreboard_frame_navigation.columnconfigure(4, weight=1, )
 
-        self.display_scoreboard_button = customtkinter.CTkButton(self.display_scoreboard_frame_navigation, text="\nDisplay scoreboard\n", font=("roboto", 20), height=0, command=self.switch_to_display_scoreboard_frame, fg_color="#25b2a1", hover_color="#25b2a1").grid(row=0, column=0, sticky=customtkinter.W + customtkinter.E)
+        self.display_scoreboard_button = customtkinter.CTkButton(self.display_scoreboard_frame_navigation, text="\nDisplay scoreboard\n", font=self.the_font, height=0, command=self.switch_to_display_scoreboard_frame, fg_color="#25b2a1", hover_color="#25b2a1").grid(row=0, column=0, sticky=customtkinter.W + customtkinter.E)
 
-        self.edit_teams_and_individuals_button = customtkinter.CTkButton(self.display_scoreboard_frame_navigation, text="\nEdit teams and individuals\n", font=("roboto", 20), height=0, command=self.switch_to_edit_teams_and_individuals_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=1, sticky=customtkinter.W + customtkinter.E)
+        self.edit_teams_and_individuals_button = customtkinter.CTkButton(self.display_scoreboard_frame_navigation, text="\nEdit teams and individuals\n", font=self.the_font, height=0, command=self.switch_to_edit_teams_and_individuals_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=1, sticky=customtkinter.W + customtkinter.E)
 
-        self.start_menu_button = customtkinter.CTkButton(self.display_scoreboard_frame_navigation, text="\nStart menu\n", font=("roboto", 20), height=0, command=self.switch_to_start_menu_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=2, sticky=customtkinter.W + customtkinter.E)
+        self.start_menu_button = customtkinter.CTkButton(self.display_scoreboard_frame_navigation, text="\nStart menu\n", font=self.the_font, height=0, command=self.switch_to_start_menu_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=2, sticky=customtkinter.W + customtkinter.E)
 
-        self.event_menu_button = customtkinter.CTkButton(self.display_scoreboard_frame_navigation, text="\nEdit events\n", font=("roboto", 20), height=0, command=self.switch_to_events_menu_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=3, sticky=customtkinter.W + customtkinter.E)
+        self.event_menu_button = customtkinter.CTkButton(self.display_scoreboard_frame_navigation, text="\nEdit events\n", font=self.the_font, height=0, command=self.switch_to_events_menu_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=3, sticky=customtkinter.W + customtkinter.E)
 
-        self.close_program_button = customtkinter.CTkButton(self.display_scoreboard_frame_navigation, text="\nClose program\n", font=("roboto", 20), height=0, command=self.close_the_program, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=4, sticky=customtkinter.W + customtkinter.E,)
+        self.close_program_button = customtkinter.CTkButton(self.display_scoreboard_frame_navigation, text="\nClose program\n", font=self.the_font, height=0, command=self.close_the_program, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=4, sticky=customtkinter.W + customtkinter.E,)
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
@@ -322,9 +387,9 @@ class my_gui:
         self.display_scoreboard_content_frame.columnconfigure(0, weight=0, )
         self.display_scoreboard_content_frame.columnconfigure(1, weight=0, )
 
-        self.edit_individuals_button = customtkinter.CTkButton(self.display_scoreboard_content_frame, text="Edit individuals", font=("roboto", 20), height=600, width=400, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=0, padx=100, pady=50)
+        self.edit_individuals_button = customtkinter.CTkButton(self.display_scoreboard_content_frame, text="Edit individuals", font=self.the_font, height=600, width=400, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=0, padx=100, pady=50)
 
-        self.edit_teams_button = customtkinter.CTkButton(self.display_scoreboard_content_frame, text="Edit teams", font=("roboto", 20), height=600, width=400, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=1, padx=100, pady=50)
+        self.edit_teams_button = customtkinter.CTkButton(self.display_scoreboard_content_frame, text="Edit teams", font=self.the_font, height=600, width=400, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=1, padx=100, pady=50)
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
