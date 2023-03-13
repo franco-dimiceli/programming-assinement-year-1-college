@@ -1,9 +1,9 @@
 
-## importing custom tkinter, tkinter and message box ##
+## importing custom tkinter and message box ##
 
 import customtkinter
-# import tkinter as tk
 from tkinter import messagebox
+
 class my_gui:
 
 ##        ##------------------------------------------------------------------------------------------------------------
@@ -84,9 +84,10 @@ class my_gui:
     def edit_teams_content_frame_func(self):
 
         self.edit_teams_content_frame("1st place").place(x=50, y=25)
-        self.edit_teams_content_frame("3rd place").place(x=50, y=415)
-        self.edit_teams_content_frame("2nd place").place(x=500, y=25)
-        self.edit_teams_content_frame("4th place").place(x=500, y=415)
+        # self.edit_teams_content_frame("3rd place").place(x=50, y=415)
+        # self.edit_teams_content_frame("2nd place").place(x=500, y=25)
+        # self.edit_teams_content_frame("4th place").place(x=500, y=415)
+        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.check_student_num_input, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", ).place(x=25, y=25)
 
     ## editing individuals frame #
     # def edit_individuals_frame(self, ):
@@ -213,14 +214,23 @@ class my_gui:
 
         self.user_input = self.student_num_variables.get()
 
-        if self.user_input == "":
-            print("you must input 6 numbers. 162289, for example. and leave 000000 if no one is entering")
-        elif self.user_input > 6:
-            print("cant have more then 6 numbers")
-        elif self.user_input < 6:
-            print(self.student_num_variables.get(), "must have less then 6 numbers")
-        elif self.user_input == self.student_num_variables.get():
-            print("cant have 2 students in the same team")
+        print(self.user_input)
+
+        try:
+
+            int(self.user_input)
+
+        except ValueError:
+
+            self.msg.showinfo(title="Error", message="must input a student number, names and other words wont be accepted")
+
+        if len(self.user_input) > 6:
+
+            self.msg.showinfo(title="Error", message="cant input more the 6 numbers")
+
+        if self.user_input == "-":
+
+            self.msg.showinfo(title="Error", message="cant have negative values")
 
 ##      ##--------------------------------------------------------------------------------------------------------------
 
@@ -345,7 +355,7 @@ class my_gui:
 
     ## edit teams variables ##
 
-        self.student_num_variables = customtkinter.IntVar()
+        self.student_num_variables = customtkinter.StringVar()
 
     ## edit individuals menu ##
 
