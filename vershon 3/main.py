@@ -3,6 +3,7 @@
 
 import customtkinter
 from tkinter import messagebox
+
 class my_gui:
 
 ##        ##------------------------------------------------------------------------------------------------------------
@@ -206,15 +207,15 @@ class my_gui:
 
 ##      ##--------------------------------------------------------------------------------------------------------------
 
-    ## data storage ##
+    ## data saveing ##
 
     def data_storage_func(self, verable):
 
         self.input = verable
 
-        event_info_file = open("event_info.txt", "w")
+        event_info_file = open("event_info.txt", "a")
 
-        event_info_file.write(self.input)
+        event_info_file.writelines(self.input + "\n")
 
         event_info_file.close()
 
@@ -406,7 +407,7 @@ class my_gui:
 
             data = f.read().splitlines()
 
-            self.student_num_variables = data[0]
+            self.student_num_variables = customtkinter.StringVar(value=data[0])
 
     ## edit individuals menu ##
 
