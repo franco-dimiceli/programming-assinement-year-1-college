@@ -55,7 +55,7 @@ class my_gui:
 
     ## edit teams and individuals frame content ##
 
-    def edit_teams_content_frame(self, label_text, variable_1, variable_2, variable_3, variable_4, variable_5):
+    def edit_teams_content_frame(self, label_text, variable_1, variable_2, variable_3, variable_4, variable_5, team_name):
 
         self.edit_teams_main_frame = customtkinter.CTkFrame(self.editing_teams_frame, )
 
@@ -71,7 +71,7 @@ class my_gui:
 
         self.place_label = customtkinter.CTkLabel(self.edit_teams_main_frame, text=label_text, font=self.the_font_small, ).grid(column=0, row=0, pady=10)
 
-        self.team_entry = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter team name", font=("roboto", 16), height=35, ).grid(column=0, row=1, pady=10, padx=10, )
+        self.team_entry = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter team name", font=("roboto", 16), height=35, textvariable=team_name, ).grid(column=0, row=1, pady=10, padx=10, )
 
         self.individual_text_box_1 = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter individual 1", font=("roboto", 14), width=150, height=35, textvariable=variable_1, ).grid(column=1, row=2, pady=10, padx=10)
         self.individual_text_box_2 = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter individual 2", font=("roboto", 14), width=150, height=35, textvariable=variable_2, ).grid(column=1, row=3, pady=10, padx=10)
@@ -82,11 +82,11 @@ class my_gui:
         return self.edit_teams_main_frame
     def edit_teams_content_frame_func(self):
 
-        self.edit_teams_content_frame("1st place", self.student_num_variables, self.individual_2_team_1, self.individual_3_team_1, self.individual_4_team_1, self.individual_5_team_1, ).place(x=50, y=25)
-        self.edit_teams_content_frame("3rd place", self.individual_1_team_3, self.individual_2_team_3, self.individual_3_team_3, self.individual_4_team_3, self.individual_5_team_3,).place(x=50, y=415)
-        self.edit_teams_content_frame("2nd place", self.individual_1_team_2, self.individual_2_team_2, self.individual_3_team_2, self.individual_4_team_2, self.individual_5_team_2,).place(x=500, y=25)
-        self.edit_teams_content_frame("4th place", self.individual_1_team_4, self.individual_2_team_4, self.individual_3_team_4, self.individual_4_team_4, self.individual_5_team_4,).place(x=500, y=415)
-        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.check_student_num_input, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=750, y=800)
+        self.edit_teams_content_frame("1st place", self.individual_1_team_1_event_1, self.individual_2_team_1_event_1, self.individual_3_team_1_event_1, self.individual_4_team_1_event_1, self.individual_5_team_1_event_1, self.team_1_event_1, ).place(x=50, y=25)
+        self.edit_teams_content_frame("3rd place", self.individual_1_team_3_event_1, self.individual_2_team_3_event_1, self.individual_3_team_3_event_1, self.individual_4_team_3_event_1, self.individual_5_team_3_event_1, self.team_2_event_1, ).place(x=50, y=415)
+        self.edit_teams_content_frame("2nd place", self.individual_1_team_2_event_1, self.individual_2_team_2_event_1, self.individual_3_team_2_event_1, self.individual_4_team_2_event_1, self.individual_5_team_2_event_1, self.team_3_event_1, ).place(x=500, y=25)
+        self.edit_teams_content_frame("4th place", self.individual_1_team_4_event_1, self.individual_2_team_4_event_1, self.individual_3_team_4_event_1, self.individual_4_team_4_event_1, self.individual_5_team_4_event_1, self.team_4_event_1, ).place(x=500, y=415)
+        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_1_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=750, y=800)
 
     ## editing individuals frame #
     # def edit_individuals_frame(self, ):
@@ -207,17 +207,15 @@ class my_gui:
 
 ##      ##--------------------------------------------------------------------------------------------------------------
 
-    ## data saveing ##
+    ## data storage for teams ##
 
-    def data_storage_func(self, verable):
-
-        self.input = verable
+    def save_team_names(self, name, line_to_write_to, ):
 
         with open("event_info.txt") as f:
 
             lines = f.readlines()
 
-            lines[0] = verable + "\n"
+            lines[line_to_write_to] = name + "\n"
 
             with open("event_info.txt", "w") as f:
 
@@ -225,20 +223,70 @@ class my_gui:
 
                     f.write(line)
 
-    ## data validation ##
-    def check_student_num_input(self):
+    ## data validashion for team names ##
+
+    def check_team_name_input(self, input, line_num, ):
+
+        self.name_input = input
+
+        self.validashion_points = 0
+
+        if self.name_input == "":
+
+            self.msg.showinfo(title="Error", message=("Team names cant be blank, if there is no team just leave the teams as team 1, team 2, team 3 and team 4"))
+
+        else:
+
+            self.validashion_points = self.validashion_points + 1
+
+        if len(self.name_input) > 13:
+
+            self.msg.showinfo(title="Error", message=(self.name_input + ": cant be more then 13 charicters"))
+
+        else:
+
+            self.validashion_points = self.validashion_points + 1
+
+        if self.validashion_points == 2:
+
+            self.save_team_names(self.name_input, line_num)
+
+    ## data saveing for individuals ##
+
+    def data_storage_func(self, verable, line_to_write_to, ):
+
+        with open("event_info.txt") as f:
+
+            lines = f.readlines()
+
+            lines[line_to_write_to] = verable + "\n"
+
+            with open("event_info.txt", "w") as f:
+
+                for line in lines:
+
+                    f.write(line)
+
+    ## data validation for individuals ##
+    def check_student_num_input(self, input, line_num):
 
         self.invalid_charicters = (":", ";", "/", ",", ".", ">", "<", "?", "|", "@", "'", "#", "~", "-", "_", "=", "+", "}", "{", "[", "]", "(", ")", "¬", "`", "!", "£", "$", "%", "^", "&", "*", )
 
         self.charicters_counter = 0
 
-        self.user_input = self.student_num_variables.get()
+        self.user_input = input
 
         print(self.user_input)
 
+        self.validashion_chechks = 0
+
         if self.user_input == "":
 
-            self.msg.showinfo(title="Error", message="cant leve indvidual feilds blank. input 000000 if no one is playing ")
+            self.msg.showinfo(title="Error", message="cant leve indvidual feilds blank. input 000000 if no one is playing")
+
+        else:
+
+            self.validashion_chechks = + 1
 
         for char in self.invalid_charicters:
 
@@ -248,21 +296,82 @@ class my_gui:
 
         if self.charicters_counter > 0:
 
-            self.msg.showinfo(title="Error", message="cant have :, ;, /, , ., >, <, ?, |, @, ', # ~, -, _, =, +, }, {, [, ], (, ), ¬, `, !, £, $, %, ^, &, *, in the student number")
+            self.msg.showinfo(title="Error", message=(self.user_input + ": cant have :, ;, /, , ., >, <, ?, |, @, ', # ~, -, _, =, +, }, {, [, ], (, ), ¬, `, !, £, $, %, ^, &, *, in the student number"))
+
+        else:
+
+            self.validashion_chechks = self.validashion_chechks + 1
 
         try:
 
-            int(self.user_input)
+            int(self.user_input); self.validashion_chechks = self.validashion_chechks + 1
 
         except ValueError:
 
-            self.msg.showinfo(title="Error", message="must input a student number, names and other words wont be accepted")
+            self.msg.showinfo(title="Error", message=(self.user_input + ": must be a student number, names and other words wont be accepted"))
 
         if len(self.user_input) > 6:
 
-            self.msg.showinfo(title="Error", message="cant input more the 6 numbers")
+            self.msg.showinfo(title="Error", message=(self.user_input + ": cant have more the 6 numbers: "))
 
-        self.data_storage_func(self.user_input)
+        else:
+
+            self.validashion_chechks = self.validashion_chechks + 1
+
+        if len(self.user_input) < 6:
+
+            self.msg.showinfo(title="Error", message=(self.user_input + ": cant be less then 6 numbers"))
+
+        else:
+
+            self.validashion_chechks = self.validashion_chechks + 1
+
+        if self.validashion_chechks == 5:
+
+            self.data_storage_func(self.user_input, line_num)
+
+
+    ## data validashion for event 1 ##
+    def data_validashion_for_event_1_team_1(self):
+
+        self.check_team_name_input(self.team_1_event_1.get(), 20, )
+        self.check_student_num_input(self.individual_1_team_1_event_1.get(), 0)
+        self.check_student_num_input(self.individual_2_team_1_event_1.get(), 1)
+        self.check_student_num_input(self.individual_3_team_1_event_1.get(), 2)
+        self.check_student_num_input(self.individual_4_team_1_event_1.get(), 3)
+        self.check_student_num_input(self.individual_5_team_1_event_1.get(), 4)
+
+    def data_validashion_for_event_1_team_2(self):
+
+        self.check_team_name_input(self.team_2_event_1.get(), 21, )
+        self.check_student_num_input(self.individual_1_team_2_event_1.get(), 5)
+        self.check_student_num_input(self.individual_2_team_2_event_1.get(), 6)
+        self.check_student_num_input(self.individual_3_team_2_event_1.get(), 7)
+        self.check_student_num_input(self.individual_4_team_2_event_1.get(), 8)
+        self.check_student_num_input(self.individual_5_team_2_event_1.get(), 9)
+    def data_validashion_for_event_1_team_3(self):
+
+        self.check_team_name_input(self.team_3_event_1.get(), 22, )
+        self.check_student_num_input(self.individual_1_team_3_event_1.get(), 10)
+        self.check_student_num_input(self.individual_2_team_3_event_1.get(), 11)
+        self.check_student_num_input(self.individual_3_team_3_event_1.get(), 12)
+        self.check_student_num_input(self.individual_4_team_3_event_1.get(), 13)
+        self.check_student_num_input(self.individual_5_team_3_event_1.get(), 14)
+
+    def data_validashion_for_event_1_team_4(self):
+
+        self.check_team_name_input(self.team_4_event_1.get(), 23, )
+        self.check_student_num_input(self.individual_1_team_4_event_1.get(), 15)
+        self.check_student_num_input(self.individual_2_team_4_event_1.get(), 16)
+        self.check_student_num_input(self.individual_3_team_4_event_1.get(), 17)
+        self.check_student_num_input(self.individual_4_team_4_event_1.get(), 18)
+        self.check_student_num_input(self.individual_5_team_4_event_1.get(), 19)
+    def data_validashion_for_event_1_teams_all_func(self):
+
+        self.data_validashion_for_event_1_team_1()
+        self.data_validashion_for_event_1_team_2()
+        self.data_validashion_for_event_1_team_3()
+        self.data_validashion_for_event_1_team_4()
 
 ##      ##--------------------------------------------------------------------------------------------------------------
 
@@ -389,29 +498,114 @@ class my_gui:
 
         self.editing_teams_frame = customtkinter.CTkFrame(self.root, width=900, height=900, )
 
-    ## edit teams variables ##
-
         self.combo_box_var = customtkinter.StringVar()
 
         with open("event_info.txt", "r") as f:
 
             data = f.read().splitlines()
 
+                ## edit teams verables ##
+
             ## event 1 ##
 
             ## team 1 ##
-            self.student_num_variables, self.individual_2_team_1, self.individual_3_team_1, self.individual_4_team_1, self.individual_5_team_1, = customtkinter.StringVar(value=data[0]), customtkinter.StringVar(value=data[1]), customtkinter.StringVar(value=data[2]), customtkinter.StringVar(value=data[3]), customtkinter.StringVar(value=data[4])
+            self.individual_1_team_1_event_1, self.individual_2_team_1_event_1, self.individual_3_team_1_event_1, self.individual_4_team_1_event_1, self.individual_5_team_1_event_1, = customtkinter.StringVar(value=data[0]), customtkinter.StringVar(value=data[1]), customtkinter.StringVar(value=data[2]), customtkinter.StringVar(value=data[3]), customtkinter.StringVar(value=data[4])
 
             ## team 2 ##
-            self.individual_1_team_2, self.individual_2_team_2, self.individual_3_team_2, self.individual_4_team_2, self.individual_5_team_2, = customtkinter.StringVar(value=data[5]), customtkinter.StringVar(value=data[6]), customtkinter.StringVar(value=data[7]), customtkinter.StringVar(value=data[8]), customtkinter.StringVar(value=data[9])
+            self.individual_1_team_2_event_1, self.individual_2_team_2_event_1, self.individual_3_team_2_event_1, self.individual_4_team_2_event_1, self.individual_5_team_2_event_1, = customtkinter.StringVar(value=data[5]), customtkinter.StringVar(value=data[6]), customtkinter.StringVar(value=data[7]), customtkinter.StringVar(value=data[8]), customtkinter.StringVar(value=data[9])
 
             ## team 3 ##
-            self.individual_1_team_3, self.individual_2_team_3, self.individual_3_team_3, self.individual_4_team_3, self.individual_5_team_3, = customtkinter.StringVar(value=data[10]), customtkinter.StringVar(value=data[11]), customtkinter.StringVar(value=data[12]), customtkinter.StringVar(value=data[13]), customtkinter.StringVar(value=data[14])
+            self.individual_1_team_3_event_1, self.individual_2_team_3_event_1, self.individual_3_team_3_event_1, self.individual_4_team_3_event_1, self.individual_5_team_3_event_1, = customtkinter.StringVar(value=data[10]), customtkinter.StringVar(value=data[11]), customtkinter.StringVar(value=data[12]), customtkinter.StringVar(value=data[13]), customtkinter.StringVar(value=data[14])
 
             ## team 4 ##
-            self.individual_1_team_4, self.individual_2_team_4, self.individual_3_team_4, self.individual_4_team_4, self.individual_5_team_4, = customtkinter.StringVar(value=data[15]), customtkinter.StringVar(value=data[16]), customtkinter.StringVar(value=data[17]), customtkinter.StringVar(value=data[18]), customtkinter.StringVar(value=data[19])
+            self.individual_1_team_4_event_1, self.individual_2_team_4_event_1, self.individual_3_team_4_event_1, self.individual_4_team_4_event_1, self.individual_5_team_4_event_1, = customtkinter.StringVar(value=data[15]), customtkinter.StringVar(value=data[16]), customtkinter.StringVar(value=data[17]), customtkinter.StringVar(value=data[18]), customtkinter.StringVar(value=data[19])
 
+            ## team names for event 1 ##
+            self.team_1_event_1, self.team_2_event_1, self.team_3_event_1, self.team_4_event_1 = customtkinter.StringVar(value=data[20]), customtkinter.StringVar(value=data[21]), customtkinter.StringVar(value=data[22]), customtkinter.StringVar(value=data[23])
 
+            ## event 2 ##
+
+            ## team 1 ##
+            self.individual_1_team_1_event_2, self.individual_2_team_1_event_2, self.individual_3_team_1_event_2, self.individual_4_team_1_event_2, self.individual_5_team_1_event_2, = customtkinter.StringVar(value=data[24]), customtkinter.StringVar(value=data[25]), customtkinter.StringVar(value=data[26]), customtkinter.StringVar(value=data[27]), customtkinter.StringVar(value=data[28])
+
+            ## team 2 ##
+            self.individual_1_team_2_event_2, self.individual_2_team_2_event_2, self.individual_3_team_2_event_2, self.individual_4_team_2_event_2, self.individual_5_team_2_event_2, = customtkinter.StringVar(value=data[29]), customtkinter.StringVar(value=data[30]), customtkinter.StringVar(value=data[31]), customtkinter.StringVar(value=data[32]), customtkinter.StringVar(value=data[33])
+
+            ## team 3 ##
+            self.individual_1_team_3_event_2, self.individual_2_team_3_event_2, self.individual_3_team_3_event_2, self.individual_4_team_3_event_2, self.individual_5_team_3_event_2, = customtkinter.StringVar(value=data[34]), customtkinter.StringVar(value=data[35]), customtkinter.StringVar(value=data[36]), customtkinter.StringVar(value=data[37]), customtkinter.StringVar(value=data[38])
+
+            ## team 4 ##
+            self.individual_1_team_4_event_2, self.individual_2_team_4_event_2, self.individual_3_team_4_event_2, self.individual_4_team_4_event_2, self.individual_5_team_4_event_2, = customtkinter.StringVar(value=data[39]), customtkinter.StringVar(value=data[40]), customtkinter.StringVar(value=data[41]), customtkinter.StringVar(value=data[42]), customtkinter.StringVar(value=data[43])
+
+            ## team names for event 2 ##
+            self.team_1_event_2, self.team_2_event_2, self.team_3_event_2, self.team_4_event_2 = customtkinter.StringVar(value=data[44]), customtkinter.StringVar(value=data[45]), customtkinter.StringVar(value=data[46]), customtkinter.StringVar(value=data[47])
+
+            ## event 3 ##
+
+            ## team 1 ##
+            self.individual_1_team_1_event_3, self.individual_2_team_1_event_3, self.individual_3_team_1_event_3, self.individual_4_team_1_event_3, self.individual_5_team_1_event_3, = customtkinter.StringVar(value=data[48]), customtkinter.StringVar(value=data[49]), customtkinter.StringVar(value=data[50]), customtkinter.StringVar(value=data[51]), customtkinter.StringVar(value=data[52])
+
+            ## team 2 ##
+            self.individual_1_team_2_event_3, self.individual_2_team_2_event_3, self.individual_3_team_2_event_3, self.individual_4_team_2_event_3, self.individual_5_team_2_event_3, = customtkinter.StringVar(value=data[53]), customtkinter.StringVar(value=data[54]), customtkinter.StringVar(value=data[55]), customtkinter.StringVar(value=data[56]), customtkinter.StringVar(value=data[57])
+
+            ## team 3 ##
+            self.individual_1_team_3_event_3, self.individual_2_team_3_event_3, self.individual_3_team_3_event_3, self.individual_4_team_3_event_3, self.individual_5_team_3_event_3, = customtkinter.StringVar(value=data[58]), customtkinter.StringVar(value=data[59]), customtkinter.StringVar(value=data[60]), customtkinter.StringVar(value=data[61]), customtkinter.StringVar(value=data[62])
+
+            ## team 4 ##
+            self.individual_1_team_4_event_3, self.individual_2_team_4_event_3, self.individual_3_team_4_event_3, self.individual_4_team_4_event_3, self.individual_5_team_4_event_3, = customtkinter.StringVar(value=data[63]), customtkinter.StringVar(value=data[64]), customtkinter.StringVar(value=data[65]), customtkinter.StringVar(value=data[66]), customtkinter.StringVar(value=data[67])
+
+            ## team names for event 3 ##
+            self.team_1_event_3, self.team_2_event_3, self.team_3_event_3, self.team_4_event_3 = customtkinter.StringVar(value=data[68]), customtkinter.StringVar(value=data[69]), customtkinter.StringVar(value=data[70]), customtkinter.StringVar(value=data[71])
+
+            ## event 4 ##
+
+            ## team 1 ##
+            self.individual_1_team_1_event_4, self.individual_2_team_1_event_4, self.individual_3_team_1_event_4, self.individual_4_team_1_event_4, self.individual_5_team_1_event_4, = customtkinter.StringVar(value=data[72]), customtkinter.StringVar(value=data[73]), customtkinter.StringVar(value=data[74]), customtkinter.StringVar(value=data[75]), customtkinter.StringVar(value=data[76])
+
+            ## team 2 ##
+            self.individual_1_team_2_event_4, self.individual_2_team_2_event_4, self.individual_3_team_2_event_4, self.individual_4_team_2_event_4, self.individual_5_team_2_event_4, = customtkinter.StringVar(value=data[77]), customtkinter.StringVar(value=data[78]), customtkinter.StringVar(value=data[79]), customtkinter.StringVar(value=data[80]), customtkinter.StringVar(value=data[81])
+
+            ## team 3 ##
+            self.individual_1_team_3_event_4, self.individual_2_team_3_event_4, self.individual_3_team_3_event_4, self.individual_4_team_3_event_4, self.individual_5_team_3_event_4, = customtkinter.StringVar(value=data[82]), customtkinter.StringVar(value=data[83]), customtkinter.StringVar(value=data[84]), customtkinter.StringVar(value=data[85]), customtkinter.StringVar(value=data[86])
+
+            ## team 4 ##
+            self.individual_1_team_4_event_4, self.individual_2_team_4_event_4, self.individual_3_team_4_event_4, self.individual_4_team_4_event_4, self.individual_5_team_4_event_4, = customtkinter.StringVar(value=data[87]), customtkinter.StringVar(value=data[88]), customtkinter.StringVar(value=data[89]), customtkinter.StringVar(value=data[90]), customtkinter.StringVar(value=data[91])
+
+            ## team names for event 4 ##
+            self.team_1_event_4, self.team_2_event_4, self.team_3_event_4, self.team_4_event_4 = customtkinter.StringVar(value=data[92]), customtkinter.StringVar(value=data[93]), customtkinter.StringVar(value=data[94]), customtkinter.StringVar(value=data[95])
+
+            ## event 5 ##
+
+            ## team 1 ##
+            self.individual_1_team_1_event_5, self.individual_2_team_1_event_5, self.individual_3_team_1_event_5, self.individual_4_team_1_event_5, self.individual_5_team_1_event_5, = customtkinter.StringVar(value=data[96]), customtkinter.StringVar(value=data[97]), customtkinter.StringVar(value=data[98]), customtkinter.StringVar(value=data[99]), customtkinter.StringVar(value=data[100])
+
+            ## team 2 ##
+            self.individual_1_team_2_event_5, self.individual_2_team_2_event_5, self.individual_3_team_2_event_5, self.individual_4_team_2_event_5, self.individual_5_team_2_event_5, = customtkinter.StringVar(value=data[101]), customtkinter.StringVar(value=data[102]), customtkinter.StringVar(value=data[103]), customtkinter.StringVar(value=data[104]), customtkinter.StringVar(value=data[105])
+
+            ## team 3 ##
+            self.individual_1_team_3_event_5, self.individual_2_team_3_event_5, self.individual_3_team_3_event_5, self.individual_4_team_3_event_5, self.individual_5_team_3_event_5, = customtkinter.StringVar(value=data[106]), customtkinter.StringVar(value=data[107]), customtkinter.StringVar(value=data[108]), customtkinter.StringVar(value=data[109]), customtkinter.StringVar(value=data[110])
+
+            ## team 4 ##
+            self.individual_1_team_4_event_5, self.individual_2_team_4_event_5, self.individual_3_team_4_event_5, self.individual_4_team_4_event_5, self.individual_5_team_4_event_4, = customtkinter.StringVar(value=data[111]), customtkinter.StringVar(value=data[112]), customtkinter.StringVar(value=data[113]), customtkinter.StringVar(value=data[114]), customtkinter.StringVar(value=data[115])
+
+            ## team names for event 5 ##
+            self.team_1_event_5, self.team_2_event_5, self.team_3_event_5, self.team_4_event_5 = customtkinter.StringVar(value=data[116]), customtkinter.StringVar(value=data[117]), customtkinter.StringVar(value=data[118]), customtkinter.StringVar(value=data[119])
+
+                ## individuals verables ##
+
+            ## event 1 ##
+
+            self.individual_1_event_1, self.individual_2_event_1, self.individual_3_event_1, self.individual_4_event_1, self.individual_5_event_1 = customtkinter.StringVar(value=data[120]), customtkinter.StringVar(value=data[121]), customtkinter.StringVar(value=data[122]), customtkinter.StringVar(value=data[123]), customtkinter.StringVar(value=data[124])
+            self.individual_6_event_1, self.individual_7_event_1, self.individual_8_event_1, self.individual_9_event_1, self.individual_10_event_1 = customtkinter.StringVar(value=data[125]), customtkinter.StringVar(value=data[126]), customtkinter.StringVar(value=data[127]), customtkinter.StringVar(value=data[128]), customtkinter.StringVar(value=data[129])
+            self.individual_11_event_1, self.individual_12_event_1, self.individual_13_event_1, self.individual_14_event_1, self.individual_15_event_1 = customtkinter.StringVar(value=data[130]), customtkinter.StringVar(value=data[131]), customtkinter.StringVar(value=data[132]), customtkinter.StringVar(value=data[133]), customtkinter.StringVar(value=data[134])
+            self.individual_16_event_1, self.individual_17_event_1, self.individual_18_event_1, self.individual_19_event_1, self.individual_20_event_1 = customtkinter.StringVar(value=data[135]), customtkinter.StringVar(value=data[136]), customtkinter.StringVar(value=data[137]), customtkinter.StringVar(value=data[138]), customtkinter.StringVar(value=data[139])
+
+            ## event 2 ##
+
+            self.individual_1_event_2, self.individual_2_event_2, self.individual_3_event_2, self.individual_4_event_2, self.individual_5_event_2 = customtkinter.StringVar(value=data[140]), customtkinter.StringVar(value=data[141]), customtkinter.StringVar(value=data[142]), customtkinter.StringVar(value=data[143]), customtkinter.StringVar(value=data[144])
+            self.individual_6_event_2, self.individual_7_event_2, self.individual_8_event_2, self.individual_9_event_2, self.individual_10_event_2 = customtkinter.StringVar(value=data[145]), customtkinter.StringVar(value=data[146]), customtkinter.StringVar(value=data[147]), customtkinter.StringVar(value=data[148]), customtkinter.StringVar(value=data[149])
+            self.individual_11_event_2, self.individual_12_event_2, self.individual_13_event_2, self.individual_14_event_2, self.individual_15_event_2 = customtkinter.StringVar(value=data[150]), customtkinter.StringVar(value=data[151]), customtkinter.StringVar(value=data[152]), customtkinter.StringVar(value=data[153]), customtkinter.StringVar(value=data[154])
+            self.individual_16_event_2, self.individual_17_event_2, self.individual_18_event_2, self.individual_19_event_2, self.individual_20_event_2 = customtkinter.StringVar(value=data[155]), customtkinter.StringVar(value=data[156]), customtkinter.StringVar(value=data[157]), customtkinter.StringVar(value=data[158]), customtkinter.StringVar(value=data[159])
 
     ## edit individuals menu ##
 
