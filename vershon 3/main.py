@@ -213,13 +213,17 @@ class my_gui:
 
         self.input = verable
 
-        event_info_file = open("event_info.txt", "a")
+        with open("event_info.txt") as f:
 
-        event_info_file.writelines(self.input + "\n")
+            lines = f.readlines()
 
-        event_info_file.close()
+            lines[0] = verable + "\n"
 
+            with open("event_info.txt", "w") as f:
 
+                for line in lines:
+
+                    f.write(line)
 
     ## data validation ##
     def check_student_num_input(self):
@@ -387,27 +391,27 @@ class my_gui:
 
     ## edit teams variables ##
 
-        ## event 1 ##
-
-        ## team 1 ##
-        self.student_num_variables, self.individual_2_team_1, self.individual_3_team_1, self.individual_4_team_1, self.individual_5_team_1,  = customtkinter.StringVar(), customtkinter.StringVar(), customtkinter.StringVar(), customtkinter.StringVar(), customtkinter.StringVar()
-
-        ## team 2 ##
-        self.individual_1_team_2, self.individual_2_team_2, self.individual_3_team_2, self.individual_4_team_2, self.individual_5_team_2, = customtkinter.StringVar(), customtkinter.StringVar(), customtkinter.StringVar(), customtkinter.StringVar(), customtkinter.StringVar()
-
-        ## team 3 ##
-        self.individual_1_team_3, self.individual_2_team_3, self.individual_3_team_3, self.individual_4_team_3, self.individual_5_team_3, = customtkinter.StringVar(), customtkinter.StringVar(), customtkinter.StringVar(), customtkinter.StringVar(), customtkinter.StringVar()
-
-        ## team 4 ##
-        self.individual_1_team_4, self.individual_2_team_4, self.individual_3_team_4, self.individual_4_team_4, self.individual_5_team_4, = customtkinter.StringVar(), customtkinter.StringVar(), customtkinter.StringVar(), customtkinter.StringVar(), customtkinter.StringVar()
-
         self.combo_box_var = customtkinter.StringVar()
 
         with open("event_info.txt", "r") as f:
 
             data = f.read().splitlines()
 
-            self.student_num_variables = customtkinter.StringVar(value=data[0])
+            ## event 1 ##
+
+            ## team 1 ##
+            self.student_num_variables, self.individual_2_team_1, self.individual_3_team_1, self.individual_4_team_1, self.individual_5_team_1, = customtkinter.StringVar(value=data[0]), customtkinter.StringVar(value=data[1]), customtkinter.StringVar(value=data[2]), customtkinter.StringVar(value=data[3]), customtkinter.StringVar(value=data[4])
+
+            ## team 2 ##
+            self.individual_1_team_2, self.individual_2_team_2, self.individual_3_team_2, self.individual_4_team_2, self.individual_5_team_2, = customtkinter.StringVar(value=data[5]), customtkinter.StringVar(value=data[6]), customtkinter.StringVar(value=data[7]), customtkinter.StringVar(value=data[8]), customtkinter.StringVar(value=data[9])
+
+            ## team 3 ##
+            self.individual_1_team_3, self.individual_2_team_3, self.individual_3_team_3, self.individual_4_team_3, self.individual_5_team_3, = customtkinter.StringVar(value=data[10]), customtkinter.StringVar(value=data[11]), customtkinter.StringVar(value=data[12]), customtkinter.StringVar(value=data[13]), customtkinter.StringVar(value=data[14])
+
+            ## team 4 ##
+            self.individual_1_team_4, self.individual_2_team_4, self.individual_3_team_4, self.individual_4_team_4, self.individual_5_team_4, = customtkinter.StringVar(value=data[15]), customtkinter.StringVar(value=data[16]), customtkinter.StringVar(value=data[17]), customtkinter.StringVar(value=data[18]), customtkinter.StringVar(value=data[19])
+
+
 
     ## edit individuals menu ##
 

@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="813d6312-364c-4336-b52f-f5234336be6c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../vershon 2/event_info.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vershon 2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../vershon 2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vershon 2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../vershon 2/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event_info.txt" beforeDir="false" afterPath="$PROJECT_DIR$/event_info.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
