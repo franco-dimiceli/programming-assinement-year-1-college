@@ -163,7 +163,7 @@ class my_gui:
 
         self.edit_individuals_frame("1st place", "2nd place", "3rd place", "4th place", "5th place", "6th place", "7th place", "8th place", "9th place", "10th place", self.individual_1_event_1, self.individual_2_event_1, self.individual_3_event_1, self.individual_4_event_1, self.individual_5_event_1, self.individual_6_event_1, self.individual_7_event_1, self.individual_8_event_1, self.individual_9_event_1, self.individual_10_event_1, ).place(x=100, y=50)
         self.edit_individuals_frame("11th place", "12th place", "13th place", "14th place", "15th place", "16th place", "17th place", "18th place", "19th place", "20th place", self.individual_11_event_1, self.individual_12_event_1, self.individual_13_event_1, self.individual_14_event_1, self.individual_15_event_1, self.individual_16_event_1, self.individual_17_event_1, self.individual_18_event_1, self.individual_19_event_1, self.individual_20_event_1, ).place(x=400, y=50)
-        self.save_and_back_button = customtkinter.CTkButton(self.edit_individuals_event_1_menu, command=self.data_validashion_for_event_1_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=500, y=600)
+        self.save_and_back_button = customtkinter.CTkButton(self.edit_individuals_event_1_menu, command=self.data_validashon_for_event_1_all_individuals, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=500, y=600)
 
 ##      ##--------------------------------------------------------------------------------------------------------------
 
@@ -646,6 +646,127 @@ class my_gui:
         self.data_validashion_for_event_5_team_2()
         self.data_validashion_for_event_5_team_3()
         self.data_validashion_for_event_5_team_4()
+
+    ## data validashion and data validashion for individuals event 1 ##
+    def data_validashon_for_event_1_all_individuals(self):
+
+        self.check_student_num_input(self.individual_1_event_1.get(), 120)
+        self.check_student_num_input(self.individual_2_event_1.get(), 121)
+        self.check_student_num_input(self.individual_3_event_1.get(), 122)
+        self.check_student_num_input(self.individual_4_event_1.get(), 123)
+        self.check_student_num_input(self.individual_5_event_1.get(), 124)
+        self.check_student_num_input(self.individual_6_event_1.get(), 125)
+        self.check_student_num_input(self.individual_7_event_1.get(), 126)
+        self.check_student_num_input(self.individual_8_event_1.get(), 127)
+        self.check_student_num_input(self.individual_9_event_1.get(), 128)
+        self.check_student_num_input(self.individual_10_event_1.get(), 129)
+        self.check_student_num_input(self.individual_11_event_1.get(), 130)
+        self.check_student_num_input(self.individual_12_event_1.get(), 131)
+        self.check_student_num_input(self.individual_13_event_1.get(), 132)
+        self.check_student_num_input(self.individual_14_event_1.get(), 133)
+        self.check_student_num_input(self.individual_15_event_1.get(), 134)
+        self.check_student_num_input(self.individual_16_event_1.get(), 135)
+        self.check_student_num_input(self.individual_17_event_1.get(), 136)
+        self.check_student_num_input(self.individual_18_event_1.get(), 137)
+        self.check_student_num_input(self.individual_19_event_1.get(), 138)
+        self.check_student_num_input(self.individual_20_event_1.get(), 139)
+
+    ## data validashon and data storage for event 2 ##
+    def data_validashon_for_event_2_all_individuals(self):
+
+        self.check_student_num_input(self.individual_1_event_2.get(), 140)
+        self.check_student_num_input(self.individual_2_event_2.get(), 141)
+        self.check_student_num_input(self.individual_3_event_2.get(), 142)
+        self.check_student_num_input(self.individual_4_event_2.get(), 143)
+        self.check_student_num_input(self.individual_5_event_2.get(), 144)
+        self.check_student_num_input(self.individual_6_event_2.get(), 145)
+        self.check_student_num_input(self.individual_7_event_2.get(), 146)
+        self.check_student_num_input(self.individual_8_event_2.get(), 147)
+        self.check_student_num_input(self.individual_9_event_2.get(), 148)
+        self.check_student_num_input(self.individual_10_event_2.get(), 149)
+        self.check_student_num_input(self.individual_11_event_2.get(), 150)
+        self.check_student_num_input(self.individual_12_event_2.get(), 151)
+        self.check_student_num_input(self.individual_13_event_2.get(), 152)
+        self.check_student_num_input(self.individual_14_event_2.get(), 153)
+        self.check_student_num_input(self.individual_15_event_2.get(), 154)
+        self.check_student_num_input(self.individual_16_event_2.get(), 155)
+        self.check_student_num_input(self.individual_17_event_2.get(), 156)
+        self.check_student_num_input(self.individual_18_event_2.get(), 157)
+        self.check_student_num_input(self.individual_19_event_2.get(), 158)
+        self.check_student_num_input(self.individual_20_event_2.get(), 159)
+
+    ## data validashion and storage for event 3 ##
+    def data_validashon_for_event_3_all_individuals(self):
+
+        self.check_student_num_input(self.individual_1_event_3.get(), 160)
+        self.check_student_num_input(self.individual_2_event_3.get(), 161)
+        self.check_student_num_input(self.individual_3_event_3.get(), 162)
+        self.check_student_num_input(self.individual_4_event_3.get(), 163)
+        self.check_student_num_input(self.individual_5_event_3.get(), 164)
+        self.check_student_num_input(self.individual_6_event_3.get(), 165)
+        self.check_student_num_input(self.individual_7_event_3.get(), 166)
+        self.check_student_num_input(self.individual_8_event_3.get(), 167)
+        self.check_student_num_input(self.individual_9_event_3.get(), 168)
+        self.check_student_num_input(self.individual_10_event_1.get(), 169)
+        self.check_student_num_input(self.individual_11_event_3.get(), 170)
+        self.check_student_num_input(self.individual_12_event_3.get(), 171)
+        self.check_student_num_input(self.individual_13_event_3.get(), 172)
+        self.check_student_num_input(self.individual_14_event_3.get(), 173)
+        self.check_student_num_input(self.individual_15_event_3.get(), 174)
+        self.check_student_num_input(self.individual_16_event_3.get(), 175)
+        self.check_student_num_input(self.individual_17_event_3.get(), 176)
+        self.check_student_num_input(self.individual_18_event_3.get(), 177)
+        self.check_student_num_input(self.individual_19_event_3.get(), 178)
+        self.check_student_num_input(self.individual_20_event_3.get(), 179)
+
+    ## data validashion and storage for event 4 ##
+    def data_validashon_for_event_4_all_individuals(self):
+
+        self.check_student_num_input(self.individual_1_event_4.get(), 180)
+        self.check_student_num_input(self.individual_2_event_4.get(), 181)
+        self.check_student_num_input(self.individual_3_event_4.get(), 182)
+        self.check_student_num_input(self.individual_4_event_4.get(), 183)
+        self.check_student_num_input(self.individual_5_event_4.get(), 184)
+        self.check_student_num_input(self.individual_6_event_4.get(), 185)
+        self.check_student_num_input(self.individual_7_event_4.get(), 186)
+        self.check_student_num_input(self.individual_8_event_4.get(), 187)
+        self.check_student_num_input(self.individual_9_event_4.get(), 188)
+        self.check_student_num_input(self.individual_10_event_4.get(), 189)
+        self.check_student_num_input(self.individual_11_event_4.get(), 190)
+        self.check_student_num_input(self.individual_12_event_4.get(), 191)
+        self.check_student_num_input(self.individual_13_event_4.get(), 192)
+        self.check_student_num_input(self.individual_14_event_4.get(), 193)
+        self.check_student_num_input(self.individual_15_event_4.get(), 194)
+        self.check_student_num_input(self.individual_16_event_4.get(), 195)
+        self.check_student_num_input(self.individual_17_event_4.get(), 196)
+        self.check_student_num_input(self.individual_18_event_4.get(), 197)
+        self.check_student_num_input(self.individual_19_event_4.get(), 198)
+        self.check_student_num_input(self.individual_20_event_4.get(), 199)
+
+    ## data validashion and storage for event 5 ##
+
+    def data_validashon_for_event_5_all_individuals(self):
+
+        self.check_student_num_input(self.individual_1_event_5.get(), 200)
+        self.check_student_num_input(self.individual_2_event_5.get(), 201)
+        self.check_student_num_input(self.individual_3_event_5.get(), 202)
+        self.check_student_num_input(self.individual_4_event_5.get(), 203)
+        self.check_student_num_input(self.individual_5_event_5.get(), 204)
+        self.check_student_num_input(self.individual_6_event_5.get(), 205)
+        self.check_student_num_input(self.individual_7_event_5.get(), 206)
+        self.check_student_num_input(self.individual_8_event_5.get(), 207)
+        self.check_student_num_input(self.individual_9_event_5.get(), 208)
+        self.check_student_num_input(self.individual_10_event_5.get(), 209)
+        self.check_student_num_input(self.individual_11_event_5.get(), 210)
+        self.check_student_num_input(self.individual_12_event_5.get(), 211)
+        self.check_student_num_input(self.individual_13_event_5.get(), 212)
+        self.check_student_num_input(self.individual_14_event_5.get(), 213)
+        self.check_student_num_input(self.individual_15_event_5.get(), 214)
+        self.check_student_num_input(self.individual_16_event_5.get(), 215)
+        self.check_student_num_input(self.individual_17_event_5.get(), 216)
+        self.check_student_num_input(self.individual_18_event_5.get(), 217)
+        self.check_student_num_input(self.individual_19_event_5.get(), 218)
+        self.check_student_num_input(self.individual_20_event_5.get(), 219)
 
 ##      ##--------------------------------------------------------------------------------------------------------------
 
