@@ -123,46 +123,46 @@ class my_gui:
         self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_5_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=750, y=800)
 
     ## editing individuals frame #
-    def edit_individuals_frame(self, place_variable_1, place_variable_2, place_variable_3, place_variable_4, place_variable_5, place_variable_6, place_variable_7, place_variable_8, place_variable_9, place_variable_10, ):
+    def edit_individuals_frame(self, place_variable_1, place_variable_2, place_variable_3, place_variable_4, place_variable_5, place_variable_6, place_variable_7, place_variable_8, place_variable_9, place_variable_10, text_var_1, text_var_2, text_var_3, text_var_4, text_var_5, text_var_6, text_var_7, text_var_8, text_var_9, text_var_10, ):
 
         self.edit_individuals_event_1_1_menu = customtkinter.CTkFrame(self.edit_individuals_event_1_menu)
 
-        self.individual_entry_1 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=0, padx=10, pady=10, )
+        self.individual_entry_1 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, textvariable=text_var_1, ).grid(column=1, row=0, padx=10, pady=10, )
         self.first_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_1, font=self.the_font_small, ).grid(column=0, row=0, padx=10, pady=10, )
 
-        self.individual_entry_2 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=1, padx=10, pady=10, )
+        self.individual_entry_2 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, textvariable=text_var_2, ).grid(column=1, row=1, padx=10, pady=10, )
         self.second_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_2, font=self.the_font_small, ).grid(column=0, row=1, padx=10, pady=10, )
 
-        self.individual_entry_3 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=2, padx=10, pady=10, )
+        self.individual_entry_3 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, textvariable=text_var_3, ).grid(column=1, row=2, padx=10, pady=10, )
         self.third_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_3, font=self.the_font_small, ).grid(column=0, row=2, padx=10, pady=10, )
 
-        self.individual_entry_4 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=3, padx=10, pady=10, )
+        self.individual_entry_4 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, textvariable=text_var_4, ).grid(column=1, row=3, padx=10, pady=10, )
         self.forth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_4, font=self.the_font_small, ).grid(column=0, row=3, padx=10, pady=10, )
 
-        self.individual_entry_5 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=4, padx=10, pady=10, )
+        self.individual_entry_5 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, textvariable=text_var_5, ).grid(column=1, row=4, padx=10, pady=10, )
         self.fifth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_5, font=self.the_font_small, ).grid(column=0, row=4, padx=10, pady=10, )
 
-        self.individual_entry_6 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=5, padx=10, pady=10, )
+        self.individual_entry_6 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, textvariable=text_var_6, ).grid(column=1, row=5, padx=10, pady=10, )
         self.sixth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_6, font=self.the_font_small, ).grid(column=0, row=5, padx=10, pady=10, )
 
-        self.individual_entry_7 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=6, padx=10, pady=10, )
+        self.individual_entry_7 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, textvariable=text_var_7, ).grid(column=1, row=6, padx=10, pady=10, )
         self.seventh_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_7, font=self.the_font_small, ).grid(column=0, row=6, padx=10, pady=10, )
 
-        self.individual_entry_8 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=7, padx=10, pady=10, )
+        self.individual_entry_8 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, textvariable=text_var_8).grid(column=1, row=7, padx=10, pady=10, )
         self.eighth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_8, font=self.the_font_small, ).grid(column=0, row=7, padx=10, pady=10, )
 
-        self.individual_entry_9 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=8, padx=10, pady=10, )
+        self.individual_entry_9 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, textvariable=text_var_9).grid(column=1, row=8, padx=10, pady=10, )
         self.ninth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_9, font=self.the_font_small, ).grid(column=0, row=8, padx=10, pady=10, )
 
-        self.individual_entry_10 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=9, padx=10, pady=10, )
+        self.individual_entry_10 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, textvariable=text_var_10, ).grid(column=1, row=9, padx=10, pady=10, )
         self.tenth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_10, font=self.the_font_small, ).grid(column=0, row=9, padx=10, pady=10, )
 
         return self.edit_individuals_event_1_1_menu
 
     def edit_individuals_frame_func(self):
 
-        self.edit_individuals_frame("1st place", "2nd place", "3rd place", "4th place", "5th place", "6th place", "7th place", "8th place", "9th place", "10th place").place(x=100, y=50)
-        self.edit_individuals_frame("11th place", "12th place", "13th place", "14th place", "15th place", "16th place", "17th place", "18th place", "19th place", "20th place").place(x=400, y=50)
+        self.edit_individuals_frame("1st place", "2nd place", "3rd place", "4th place", "5th place", "6th place", "7th place", "8th place", "9th place", "10th place", self.individual_1_event_1, self.individual_2_event_1, self.individual_3_event_1, self.individual_4_event_1, self.individual_5_event_1, self.individual_6_event_1, self.individual_7_event_1, self.individual_8_event_1, self.individual_9_event_1, self.individual_10_event_1, ).place(x=100, y=50)
+        self.edit_individuals_frame("11th place", "12th place", "13th place", "14th place", "15th place", "16th place", "17th place", "18th place", "19th place", "20th place", self.individual_11_event_1, self.individual_12_event_1, self.individual_13_event_1, self.individual_14_event_1, self.individual_15_event_1, self.individual_16_event_1, self.individual_17_event_1, self.individual_18_event_1, self.individual_19_event_1, self.individual_20_event_1, ).place(x=400, y=50)
         self.save_and_back_button = customtkinter.CTkButton(self.edit_individuals_event_1_menu, command=self.data_validashion_for_event_1_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=500, y=600)
 
 ##      ##--------------------------------------------------------------------------------------------------------------
