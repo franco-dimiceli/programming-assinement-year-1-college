@@ -39,15 +39,15 @@ class my_gui:
 
 ## edit teams and individuals navigation frame ##
 
-    def event_1_to_5_buttons_frame(self,  variable_1, variable_2, variable_3, variable_4, variable_5, command_1, ):
+    def event_1_to_5_buttons_frame(self,  variable_1, variable_2, variable_3, variable_4, variable_5, command_1, command_2, command_3, command_4, command_5):
 
         self.events_1_to_5_main_frame = customtkinter.CTkFrame(self.root, width=850, height=800, )
 
         self.event_1_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, textvariable=variable_1, font=self.the_font_small, fg_color="#002542", hover_color="#25b2a1", height=300, width=225, command=command_1).grid(row=0, column=0, pady=10, padx=10)
-        self.event_2_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, textvariable=variable_2, font=self.the_font_small, fg_color="#002542", hover_color="#25b2a1", height=300, width=225, ).grid(row=0, column=1, pady=10, padx=10)
-        self.event_3_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, textvariable=variable_3, font=self.the_font_small, fg_color="#002542", hover_color="#25b2a1", height=300, width=225, ).grid(row=0, column=2, pady=10, padx=10)
-        self.event_4_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, textvariable=variable_4, font=self.the_font_small, fg_color="#002542", hover_color="#25b2a1", height=300, width=225, ).grid(row=0, column=3, pady=10, padx=10)
-        self.event_5_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, textvariable=variable_5, font=self.the_font_small, fg_color="#002542", hover_color="#25b2a1", height=300, width=225, ).grid(row=0, column=4, pady=10, padx=10)
+        self.event_2_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, textvariable=variable_2, font=self.the_font_small, fg_color="#002542", hover_color="#25b2a1", height=300, width=225, command=command_2).grid(row=0, column=1, pady=10, padx=10)
+        self.event_3_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, textvariable=variable_3, font=self.the_font_small, fg_color="#002542", hover_color="#25b2a1", height=300, width=225, command=command_3).grid(row=0, column=2, pady=10, padx=10)
+        self.event_4_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, textvariable=variable_4, font=self.the_font_small, fg_color="#002542", hover_color="#25b2a1", height=300, width=225, command=command_4).grid(row=0, column=3, pady=10, padx=10)
+        self.event_5_button = customtkinter.CTkButton(self.events_1_to_5_main_frame, textvariable=variable_5, font=self.the_font_small, fg_color="#002542", hover_color="#25b2a1", height=300, width=225, command=command_5).grid(row=0, column=4, pady=10, padx=10)
 
         return self.events_1_to_5_main_frame
 
@@ -80,6 +80,8 @@ class my_gui:
         self.individual_text_box_5 = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter individual 5", font=("roboto", 14), width=150, height=35, textvariable=variable_5, ).grid(column=1, row=6, pady=10, padx=10)
 
         return self.edit_teams_main_frame
+
+    ## event 1 ##
     def edit_teams_content_frame_func(self):
 
         self.edit_teams_content_frame("1st place", self.individual_1_team_1_event_1, self.individual_2_team_1_event_1, self.individual_3_team_1_event_1, self.individual_4_team_1_event_1, self.individual_5_team_1_event_1, self.team_1_event_1, ).place(x=50, y=25)
@@ -88,46 +90,80 @@ class my_gui:
         self.edit_teams_content_frame("4th place", self.individual_1_team_4_event_1, self.individual_2_team_4_event_1, self.individual_3_team_4_event_1, self.individual_4_team_4_event_1, self.individual_5_team_4_event_1, self.team_4_event_1, ).place(x=500, y=415)
         self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_1_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=750, y=800)
 
+    def edit_team_content_frame_for_event_2(self):
+
+        self.edit_teams_content_frame("1st place", self.individual_1_team_1_event_2, self.individual_2_team_1_event_2, self.individual_3_team_1_event_2, self.individual_4_team_1_event_2, self.individual_5_team_1_event_2, self.team_1_event_2, ).place(x=50, y=25)
+        self.edit_teams_content_frame("3rd place", self.individual_1_team_3_event_2, self.individual_2_team_3_event_2, self.individual_3_team_3_event_2, self.individual_4_team_3_event_2, self.individual_5_team_3_event_2, self.team_2_event_2, ).place(x=50, y=415)
+        self.edit_teams_content_frame("2nd place", self.individual_1_team_2_event_2, self.individual_2_team_2_event_2, self.individual_3_team_2_event_2, self.individual_4_team_2_event_2, self.individual_5_team_2_event_2, self.team_3_event_2, ).place(x=500, y=25)
+        self.edit_teams_content_frame("4th place", self.individual_1_team_4_event_2, self.individual_2_team_4_event_2, self.individual_3_team_4_event_2, self.individual_4_team_4_event_2, self.individual_5_team_4_event_2, self.team_4_event_2, ).place(x=500, y=415)
+        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_2_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=750, y=800)
+
+    def edit_team_content_frame_for_event_3(self):
+
+        self.edit_teams_content_frame("1st place", self.individual_1_team_1_event_3, self.individual_2_team_1_event_3, self.individual_3_team_1_event_3, self.individual_4_team_1_event_3, self.individual_5_team_1_event_3, self.team_1_event_3, ).place(x=50, y=25)
+        self.edit_teams_content_frame("3rd place", self.individual_1_team_3_event_3, self.individual_2_team_3_event_3, self.individual_3_team_3_event_3, self.individual_4_team_3_event_3, self.individual_5_team_3_event_3, self.team_2_event_3, ).place(x=50, y=415)
+        self.edit_teams_content_frame("2nd place", self.individual_1_team_2_event_3, self.individual_2_team_2_event_3, self.individual_3_team_2_event_3, self.individual_4_team_2_event_3, self.individual_5_team_2_event_3, self.team_3_event_3, ).place(x=500, y=25)
+        self.edit_teams_content_frame("4th place", self.individual_1_team_4_event_3, self.individual_2_team_4_event_3, self.individual_3_team_4_event_3, self.individual_4_team_4_event_3, self.individual_5_team_4_event_3, self.team_4_event_3, ).place(x=500, y=415)
+        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_3_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=750, y=800)
+
+    def edit_team_content_frame_for_event_4(self):
+
+        self.edit_teams_content_frame("1st place", self.individual_1_team_1_event_4, self.individual_2_team_1_event_4, self.individual_3_team_1_event_4, self.individual_4_team_1_event_4, self.individual_5_team_1_event_4, self.team_1_event_4, ).place(x=50, y=25)
+        self.edit_teams_content_frame("3rd place", self.individual_1_team_3_event_4, self.individual_2_team_3_event_4, self.individual_3_team_3_event_4, self.individual_4_team_3_event_4, self.individual_5_team_3_event_4, self.team_2_event_4, ).place(x=50, y=415)
+        self.edit_teams_content_frame("2nd place", self.individual_1_team_2_event_4, self.individual_2_team_2_event_4, self.individual_3_team_2_event_4, self.individual_4_team_2_event_4, self.individual_5_team_2_event_4, self.team_3_event_4, ).place(x=500, y=25)
+        self.edit_teams_content_frame("4th place", self.individual_1_team_4_event_4, self.individual_2_team_4_event_4, self.individual_3_team_4_event_4, self.individual_4_team_4_event_4, self.individual_5_team_4_event_4, self.team_4_event_4, ).place(x=500, y=415)
+        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_4_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=750, y=800)
+
+    def edit_team_content_frame_for_event_5(self):
+
+        self.edit_teams_content_frame("1st place", self.individual_1_team_1_event_5, self.individual_2_team_1_event_5, self.individual_3_team_1_event_5, self.individual_4_team_1_event_5, self.individual_5_team_1_event_5, self.team_1_event_5, ).place(x=50, y=25)
+        self.edit_teams_content_frame("3rd place", self.individual_1_team_3_event_5, self.individual_2_team_3_event_5, self.individual_3_team_3_event_5, self.individual_4_team_3_event_5, self.individual_5_team_3_event_5, self.team_2_event_5, ).place(x=50, y=415)
+        self.edit_teams_content_frame("2nd place", self.individual_1_team_2_event_5, self.individual_2_team_2_event_5, self.individual_3_team_2_event_5, self.individual_4_team_2_event_5, self.individual_5_team_2_event_5, self.team_3_event_5, ).place(x=500, y=25)
+        self.edit_teams_content_frame("4th place", self.individual_1_team_4_event_5, self.individual_2_team_4_event_5, self.individual_3_team_4_event_5, self.individual_4_team_4_event_5, self.individual_5_team_4_event_5, self.team_4_event_5, ).place(x=500, y=415)
+        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_5_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=750, y=800)
+
     ## editing individuals frame #
-    # def edit_individuals_frame(self, ):
-    #
-    #     self.edit_individuals_event_1_1_menu = customtkinter.CTkFrame(self.edit_individuals_event_1_menu)
-    #
-    #     self.individual_entry_1 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=0, padx=10, pady=10, )
-    #     self.first_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="1st place", font=self.the_font_small, ).grid(column=0, row=0, padx=10, pady=10, )
-    #
-    #     self.individual_entry_2 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=1, padx=10, pady=10, )
-    #     self.second_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="2nd place", font=self.the_font_small, ).grid(column=0, row=1, padx=10, pady=10, )
-    #
-    #     self.individual_entry_3 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=2, padx=10, pady=10, )
-    #     self.third_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="3rd place", font=self.the_font_small, ).grid(column=0, row=2, padx=10, pady=10, )
-    #
-    #     self.individual_entry_4 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=3, padx=10, pady=10, )
-    #     self.forth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="4th place", font=self.the_font_small, ).grid(column=0, row=3, padx=10, pady=10, )
-    #
-    #     self.individual_entry_5 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=4, padx=10, pady=10, )
-    #     self.fifth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="5th place", font=self.the_font_small, ).grid(column=0, row=4, padx=10, pady=10, )
-    #
-    #     self.individual_entry_6 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=5, padx=10, pady=10, )
-    #     self.sixth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="6th place", font=self.the_font_small, ).grid(column=0, row=5, padx=10, pady=10, )
-    #
-    #     self.individual_entry_7 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=6, padx=10, pady=10, )
-    #     self.seventh_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="7th place", font=self.the_font_small, ).grid(column=0, row=6, padx=10, pady=10, )
-    #
-    #     self.individual_entry_8 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=7, padx=10, pady=10, )
-    #     self.eighth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="8th place", font=self.the_font_small, ).grid(column=0, row=7, padx=10, pady=10, )
-    #
-    #     self.individual_entry_9 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=8, padx=10, pady=10, )
-    #     self.ninth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="9th place", font=self.the_font_small, ).grid(column=0, row=8, padx=10, pady=10, )
-    #
-    #     self.individual_entry_10 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=9, padx=10, pady=10, )
-    #     self.tenth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text="10th place", font=self.the_font_small, ).grid(column=0, row=9, padx=10, pady=10, )
-    #
-    #     return self.edit_individuals_event_1_1_menu
-    #
-    # def edit_individuals_frame_func(self):
-    #
-    #     self.edit_individuals_frame().pack()
+    def edit_individuals_frame(self, place_variable_1, place_variable_2, place_variable_3, place_variable_4, place_variable_5, place_variable_6, place_variable_7, place_variable_8, place_variable_9, place_variable_10, ):
+
+        self.edit_individuals_event_1_1_menu = customtkinter.CTkFrame(self.edit_individuals_event_1_menu)
+
+        self.individual_entry_1 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=0, padx=10, pady=10, )
+        self.first_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_1, font=self.the_font_small, ).grid(column=0, row=0, padx=10, pady=10, )
+
+        self.individual_entry_2 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=1, padx=10, pady=10, )
+        self.second_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_2, font=self.the_font_small, ).grid(column=0, row=1, padx=10, pady=10, )
+
+        self.individual_entry_3 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=2, padx=10, pady=10, )
+        self.third_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_3, font=self.the_font_small, ).grid(column=0, row=2, padx=10, pady=10, )
+
+        self.individual_entry_4 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=3, padx=10, pady=10, )
+        self.forth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_4, font=self.the_font_small, ).grid(column=0, row=3, padx=10, pady=10, )
+
+        self.individual_entry_5 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=4, padx=10, pady=10, )
+        self.fifth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_5, font=self.the_font_small, ).grid(column=0, row=4, padx=10, pady=10, )
+
+        self.individual_entry_6 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=5, padx=10, pady=10, )
+        self.sixth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_6, font=self.the_font_small, ).grid(column=0, row=5, padx=10, pady=10, )
+
+        self.individual_entry_7 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=6, padx=10, pady=10, )
+        self.seventh_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_7, font=self.the_font_small, ).grid(column=0, row=6, padx=10, pady=10, )
+
+        self.individual_entry_8 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=7, padx=10, pady=10, )
+        self.eighth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_8, font=self.the_font_small, ).grid(column=0, row=7, padx=10, pady=10, )
+
+        self.individual_entry_9 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=8, padx=10, pady=10, )
+        self.ninth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_9, font=self.the_font_small, ).grid(column=0, row=8, padx=10, pady=10, )
+
+        self.individual_entry_10 = customtkinter.CTkEntry(self.edit_individuals_event_1_1_menu, ).grid(column=1, row=9, padx=10, pady=10, )
+        self.tenth_place_label = customtkinter.CTkLabel(self.edit_individuals_event_1_1_menu, text=place_variable_10, font=self.the_font_small, ).grid(column=0, row=9, padx=10, pady=10, )
+
+        return self.edit_individuals_event_1_1_menu
+
+    def edit_individuals_frame_func(self):
+
+        self.edit_individuals_frame("1st place", "2nd place", "3rd place", "4th place", "5th place", "6th place", "7th place", "8th place", "9th place", "10th place").place(x=100, y=50)
+        self.edit_individuals_frame("11th place", "12th place", "13th place", "14th place", "15th place", "16th place", "17th place", "18th place", "19th place", "20th place").place(x=400, y=50)
+        self.save_and_back_button = customtkinter.CTkButton(self.edit_individuals_event_1_menu, command=self.data_validashion_for_event_1_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=500, y=600)
 
 ##      ##--------------------------------------------------------------------------------------------------------------
 
@@ -188,7 +224,13 @@ class my_gui:
 
     def switch_to_edit_teams_menu(self):
 
-        self.event_1_to_5_buttons_frame(self.event_1_variable, self.event_2_variable, self.event_3_variable, self.event_4_variable, self.event_5_variable, self.switch_to_event_1_frame_teams_menu).pack(pady=250)
+        self.event_1_to_5_buttons_frame(self.event_1_variable, self.event_2_variable, self.event_3_variable, self.event_4_variable, self.event_5_variable, self.switch_to_event_1_frame_teams_menu, self.switch_to_event_2_frame_teams_menu, self.switch_to_event_3_frame_teams_menu, self.switch_to_event_4_frame_teams_menu, self.switch_to_event_5_frame_teams_menu).pack(pady=250)
+
+        self.edit_teams_and_individuals_content_frame.pack_forget()
+
+    def switch_to_edit_individuals_menu(self):
+
+        self.event_1_to_5_buttons_frame(self.event_1_variable, self.event_2_variable, self.event_3_variable, self.event_4_variable, self.event_5_variable, self.switch_to_event_1_frame_individuals_menu, self.switch_to_event_2_frame_individuals_menu, self.switch_to_event_3_frame_individuals_menu, self.switch_to_event_4_frame_individuals_menu, self.switch_to_event_5_frame_individuals_menu).pack(pady=250)
 
         self.edit_teams_and_individuals_content_frame.pack_forget()
 
@@ -199,9 +241,72 @@ class my_gui:
 
         self.events_1_to_5_main_frame.pack_forget()
 
+    def switch_to_event_2_frame_teams_menu(self):
+
+        self.editing_teams_frame.pack(pady=40)
+        self.edit_team_content_frame_for_event_2()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_3_frame_teams_menu(self):
+
+        self.editing_teams_frame.pack(pady=40)
+        self.edit_team_content_frame_for_event_3()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_4_frame_teams_menu(self):
+
+        self.editing_teams_frame.pack(pady=40)
+        self.edit_team_content_frame_for_event_4()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_5_frame_teams_menu(self):
+
+        self.editing_teams_frame.pack(pady=40)
+        self.edit_team_content_frame_for_event_5()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_1_frame_individuals_menu(self):
+
+        self.edit_individuals_event_1_menu.pack(pady=30)
+        self.edit_individuals_frame_func()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_2_frame_individuals_menu(self):
+
+        self.edit_individuals_event_1_menu.pack(pady=30)
+        self.edit_individuals_frame_event_2()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_3_frame_individuals_menu(self):
+
+        self.edit_individuals_event_1_menu.pack(pady=30)
+        self.edit_individuals_frame_event_3()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_4_frame_individuals_menu(self):
+
+        self.edit_individuals_event_1_menu.pack(pady=30)
+        self.edit_individuals_frame_event_4()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_5_frame_individuals_menu(self):
+
+        self.edit_individuals_event_1_menu.pack(pady=30)
+        self.edit_individuals_frame_event_5()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
     def close_the_program(self):
 
-        if self.msg.askyesno(title="Exit?", message="Are you sure you want to leave?", ):
+        if self.msg.askyesno(title="Exit?", message="Are you sure you want to leave? Any unsaved changes wont be saved"):
 
             self.root.destroy()
 
@@ -331,7 +436,7 @@ class my_gui:
             self.data_storage_func(self.user_input, line_num)
 
 
-    ## data validashion for event 1 ##
+    ## data validashion and data storage for event 1 ##
     def data_validashion_for_event_1_team_1(self):
 
         self.check_team_name_input(self.team_1_event_1.get(), 20, )
@@ -372,6 +477,175 @@ class my_gui:
         self.data_validashion_for_event_1_team_2()
         self.data_validashion_for_event_1_team_3()
         self.data_validashion_for_event_1_team_4()
+
+    ## data validashion and data storage for event 2 ##
+    def data_validashion_for_event_2_team_1(self):
+
+        self.check_team_name_input(self.team_1_event_2.get(), 44, )
+        self.check_student_num_input(self.individual_1_team_1_event_2.get(), 24)
+        self.check_student_num_input(self.individual_2_team_1_event_2.get(), 25)
+        self.check_student_num_input(self.individual_3_team_1_event_2.get(), 26)
+        self.check_student_num_input(self.individual_4_team_1_event_2.get(), 27)
+        self.check_student_num_input(self.individual_5_team_1_event_2.get(), 28)
+
+    def data_validashion_for_event_2_team_2(self):
+
+        self.check_team_name_input(self.team_2_event_2.get(), 45, )
+        self.check_student_num_input(self.individual_1_team_2_event_2.get(), 29)
+        self.check_student_num_input(self.individual_2_team_2_event_2.get(), 30)
+        self.check_student_num_input(self.individual_3_team_2_event_2.get(), 31)
+        self.check_student_num_input(self.individual_4_team_2_event_2.get(), 32)
+        self.check_student_num_input(self.individual_5_team_2_event_2.get(), 33)
+    def data_validashion_for_event_2_team_3(self):
+
+        self.check_team_name_input(self.team_3_event_2.get(), 46, )
+        self.check_student_num_input(self.individual_1_team_3_event_2.get(), 34)
+        self.check_student_num_input(self.individual_2_team_3_event_2.get(), 35)
+        self.check_student_num_input(self.individual_3_team_3_event_2.get(), 36)
+        self.check_student_num_input(self.individual_4_team_3_event_2.get(), 37)
+        self.check_student_num_input(self.individual_5_team_3_event_2.get(), 38)
+
+    def data_validashion_for_event_2_team_4(self):
+
+        self.check_team_name_input(self.team_4_event_2.get(), 47, )
+        self.check_student_num_input(self.individual_1_team_4_event_2.get(), 39)
+        self.check_student_num_input(self.individual_2_team_4_event_2.get(), 40)
+        self.check_student_num_input(self.individual_3_team_4_event_2.get(), 41)
+        self.check_student_num_input(self.individual_4_team_4_event_2.get(), 42)
+        self.check_student_num_input(self.individual_5_team_4_event_2.get(), 43)
+    def data_validashion_for_event_2_teams_all_func(self):
+
+        self.data_validashion_for_event_2_team_1()
+        self.data_validashion_for_event_2_team_2()
+        self.data_validashion_for_event_2_team_3()
+        self.data_validashion_for_event_2_team_4()
+
+    ## event 3 data validashion and data storage ##
+
+    def data_validashion_for_event_3_team_1(self):
+
+        self.check_team_name_input(self.team_1_event_3.get(), 68, )
+        self.check_student_num_input(self.individual_1_team_1_event_3.get(), 48)
+        self.check_student_num_input(self.individual_2_team_1_event_3.get(), 49)
+        self.check_student_num_input(self.individual_3_team_1_event_3.get(), 50)
+        self.check_student_num_input(self.individual_4_team_1_event_3.get(), 51)
+        self.check_student_num_input(self.individual_5_team_1_event_3.get(), 52)
+
+    def data_validashion_for_event_3_team_2(self):
+
+        self.check_team_name_input(self.team_2_event_3.get(), 69, )
+        self.check_student_num_input(self.individual_1_team_2_event_3.get(), 53)
+        self.check_student_num_input(self.individual_2_team_2_event_3.get(), 54)
+        self.check_student_num_input(self.individual_3_team_2_event_3.get(), 55)
+        self.check_student_num_input(self.individual_4_team_2_event_3.get(), 56)
+        self.check_student_num_input(self.individual_5_team_2_event_3.get(), 57)
+    def data_validashion_for_event_3_team_3(self):
+
+        self.check_team_name_input(self.team_3_event_3.get(), 70, )
+        self.check_student_num_input(self.individual_1_team_3_event_3.get(), 58)
+        self.check_student_num_input(self.individual_2_team_3_event_3.get(), 59)
+        self.check_student_num_input(self.individual_3_team_3_event_3.get(), 60)
+        self.check_student_num_input(self.individual_4_team_3_event_3.get(), 61)
+        self.check_student_num_input(self.individual_5_team_3_event_3.get(), 62)
+
+    def data_validashion_for_event_3_team_4(self):
+
+        self.check_team_name_input(self.team_4_event_3.get(), 71, )
+        self.check_student_num_input(self.individual_1_team_4_event_3.get(), 63)
+        self.check_student_num_input(self.individual_2_team_4_event_3.get(), 64)
+        self.check_student_num_input(self.individual_3_team_4_event_3.get(), 65)
+        self.check_student_num_input(self.individual_4_team_4_event_3.get(), 66)
+        self.check_student_num_input(self.individual_5_team_4_event_3.get(), 67)
+    def data_validashion_for_event_3_teams_all_func(self):
+
+        self.data_validashion_for_event_3_team_1()
+        self.data_validashion_for_event_3_team_2()
+        self.data_validashion_for_event_3_team_3()
+        self.data_validashion_for_event_3_team_4()
+
+    ## event 4 data validashion and data storage ##
+    def data_validashion_for_event_4_team_1(self):
+
+        self.check_team_name_input(self.team_1_event_4.get(), 92, )
+        self.check_student_num_input(self.individual_1_team_1_event_4.get(), 72)
+        self.check_student_num_input(self.individual_2_team_1_event_4.get(), 73)
+        self.check_student_num_input(self.individual_3_team_1_event_4.get(), 74)
+        self.check_student_num_input(self.individual_4_team_1_event_4.get(), 75)
+        self.check_student_num_input(self.individual_5_team_1_event_4.get(), 76)
+
+    def data_validashion_for_event_4_team_2(self):
+
+        self.check_team_name_input(self.team_2_event_4.get(), 93, )
+        self.check_student_num_input(self.individual_1_team_2_event_4.get(), 77)
+        self.check_student_num_input(self.individual_2_team_2_event_4.get(), 78)
+        self.check_student_num_input(self.individual_3_team_2_event_4.get(), 79)
+        self.check_student_num_input(self.individual_4_team_2_event_4.get(), 80)
+        self.check_student_num_input(self.individual_5_team_2_event_4.get(), 81)
+    def data_validashion_for_event_4_team_3(self):
+
+        self.check_team_name_input(self.team_3_event_4.get(), 94, )
+        self.check_student_num_input(self.individual_1_team_3_event_4.get(), 82)
+        self.check_student_num_input(self.individual_2_team_3_event_4.get(), 83)
+        self.check_student_num_input(self.individual_3_team_3_event_4.get(), 84)
+        self.check_student_num_input(self.individual_4_team_3_event_4.get(), 85)
+        self.check_student_num_input(self.individual_5_team_3_event_4.get(), 86)
+
+    def data_validashion_for_event_4_team_4(self):
+
+        self.check_team_name_input(self.team_4_event_4.get(), 95, )
+        self.check_student_num_input(self.individual_1_team_4_event_4.get(), 87)
+        self.check_student_num_input(self.individual_2_team_4_event_4.get(), 88)
+        self.check_student_num_input(self.individual_3_team_4_event_4.get(), 89)
+        self.check_student_num_input(self.individual_4_team_4_event_4.get(), 90)
+        self.check_student_num_input(self.individual_5_team_4_event_4.get(), 91)
+    def data_validashion_for_event_4_teams_all_func(self):
+
+        self.data_validashion_for_event_4_team_1()
+        self.data_validashion_for_event_4_team_2()
+        self.data_validashion_for_event_4_team_3()
+        self.data_validashion_for_event_4_team_4()
+
+    ## data validashion and data storage for event 5 ##
+    def data_validashion_for_event_5_team_1(self):
+
+        self.check_team_name_input(self.team_1_event_5.get(), 116, )
+        self.check_student_num_input(self.individual_1_team_1_event_5.get(), 96)
+        self.check_student_num_input(self.individual_2_team_1_event_5.get(), 97)
+        self.check_student_num_input(self.individual_3_team_1_event_5.get(), 98)
+        self.check_student_num_input(self.individual_4_team_1_event_5.get(), 99)
+        self.check_student_num_input(self.individual_5_team_1_event_5.get(), 100)
+
+    def data_validashion_for_event_5_team_2(self):
+
+        self.check_team_name_input(self.team_2_event_5.get(), 117, )
+        self.check_student_num_input(self.individual_1_team_2_event_5.get(), 101)
+        self.check_student_num_input(self.individual_2_team_2_event_5.get(), 102)
+        self.check_student_num_input(self.individual_3_team_2_event_5.get(), 103)
+        self.check_student_num_input(self.individual_4_team_2_event_5.get(), 104)
+        self.check_student_num_input(self.individual_5_team_2_event_5.get(), 105)
+    def data_validashion_for_event_5_team_3(self):
+
+        self.check_team_name_input(self.team_3_event_5.get(), 118, )
+        self.check_student_num_input(self.individual_1_team_3_event_5.get(), 106)
+        self.check_student_num_input(self.individual_2_team_3_event_5.get(), 107)
+        self.check_student_num_input(self.individual_3_team_3_event_5.get(), 108)
+        self.check_student_num_input(self.individual_4_team_3_event_5.get(), 109)
+        self.check_student_num_input(self.individual_5_team_3_event_5.get(), 110)
+
+    def data_validashion_for_event_5_team_4(self):
+
+        self.check_team_name_input(self.team_4_event_5.get(), 119, )
+        self.check_student_num_input(self.individual_1_team_4_event_5.get(), 111)
+        self.check_student_num_input(self.individual_2_team_4_event_5.get(), 112)
+        self.check_student_num_input(self.individual_3_team_4_event_5.get(), 113)
+        self.check_student_num_input(self.individual_4_team_4_event_5.get(), 114)
+        self.check_student_num_input(self.individual_5_team_4_event_5.get(), 115)
+    def data_validashion_for_event_5_teams_all_func(self):
+
+        self.data_validashion_for_event_5_team_1()
+        self.data_validashion_for_event_5_team_2()
+        self.data_validashion_for_event_5_team_3()
+        self.data_validashion_for_event_5_team_4()
 
 ##      ##--------------------------------------------------------------------------------------------------------------
 
@@ -490,7 +764,7 @@ class my_gui:
         self.edit_teams_and_individuals_content_frame.columnconfigure(0, weight=0, )
         self.edit_teams_and_individuals_content_frame.columnconfigure(1, weight=0, )
 
-        self.edit_individuals_button = customtkinter.CTkButton(self.edit_teams_and_individuals_content_frame, text="Edit individuals", font=self.the_font, height=600, width=400, fg_color="#002542", hover_color="#25b2a1").grid(row=0, column=0, padx=100, pady=50)
+        self.edit_individuals_button = customtkinter.CTkButton(self.edit_teams_and_individuals_content_frame, text="Edit individuals", font=self.the_font, height=600, width=400, fg_color="#002542", hover_color="#25b2a1", command=self.switch_to_edit_individuals_menu).grid(row=0, column=0, padx=100, pady=50)
 
         self.edit_teams_button = customtkinter.CTkButton(self.edit_teams_and_individuals_content_frame, text="Edit teams", font=self.the_font, height=600, width=400, hover_color="#25b2a1", fg_color="#002542", command=self.switch_to_edit_teams_menu).grid(row=0, column=1, padx=100, pady=50)
 
@@ -586,7 +860,7 @@ class my_gui:
             self.individual_1_team_3_event_5, self.individual_2_team_3_event_5, self.individual_3_team_3_event_5, self.individual_4_team_3_event_5, self.individual_5_team_3_event_5, = customtkinter.StringVar(value=data[106]), customtkinter.StringVar(value=data[107]), customtkinter.StringVar(value=data[108]), customtkinter.StringVar(value=data[109]), customtkinter.StringVar(value=data[110])
 
             ## team 4 ##
-            self.individual_1_team_4_event_5, self.individual_2_team_4_event_5, self.individual_3_team_4_event_5, self.individual_4_team_4_event_5, self.individual_5_team_4_event_4, = customtkinter.StringVar(value=data[111]), customtkinter.StringVar(value=data[112]), customtkinter.StringVar(value=data[113]), customtkinter.StringVar(value=data[114]), customtkinter.StringVar(value=data[115])
+            self.individual_1_team_4_event_5, self.individual_2_team_4_event_5, self.individual_3_team_4_event_5, self.individual_4_team_4_event_5, self.individual_5_team_4_event_5, = customtkinter.StringVar(value=data[111]), customtkinter.StringVar(value=data[112]), customtkinter.StringVar(value=data[113]), customtkinter.StringVar(value=data[114]), customtkinter.StringVar(value=data[115])
 
             ## team names for event 5 ##
             self.team_1_event_5, self.team_2_event_5, self.team_3_event_5, self.team_4_event_5 = customtkinter.StringVar(value=data[116]), customtkinter.StringVar(value=data[117]), customtkinter.StringVar(value=data[118]), customtkinter.StringVar(value=data[119])
@@ -607,14 +881,32 @@ class my_gui:
             self.individual_11_event_2, self.individual_12_event_2, self.individual_13_event_2, self.individual_14_event_2, self.individual_15_event_2 = customtkinter.StringVar(value=data[150]), customtkinter.StringVar(value=data[151]), customtkinter.StringVar(value=data[152]), customtkinter.StringVar(value=data[153]), customtkinter.StringVar(value=data[154])
             self.individual_16_event_2, self.individual_17_event_2, self.individual_18_event_2, self.individual_19_event_2, self.individual_20_event_2 = customtkinter.StringVar(value=data[155]), customtkinter.StringVar(value=data[156]), customtkinter.StringVar(value=data[157]), customtkinter.StringVar(value=data[158]), customtkinter.StringVar(value=data[159])
 
+            ## event 3 ##
+
+            self.individual_1_event_3, self.individual_2_event_3, self.individual_3_event_3, self.individual_4_event_3, self.individual_5_event_3 = customtkinter.StringVar(value=data[160]), customtkinter.StringVar(value=data[161]), customtkinter.StringVar(value=data[162]), customtkinter.StringVar(value=data[163]), customtkinter.StringVar(value=data[164])
+            self.individual_6_event_3, self.individual_7_event_3, self.individual_8_event_3, self.individual_9_event_3, self.individual_10_event_3 = customtkinter.StringVar(value=data[165]), customtkinter.StringVar(value=data[166]), customtkinter.StringVar(value=data[167]), customtkinter.StringVar(value=data[168]), customtkinter.StringVar(value=data[169])
+            self.individual_11_event_3, self.individual_12_event_3, self.individual_13_event_3, self.individual_14_event_3, self.individual_15_event_3 = customtkinter.StringVar(value=data[170]), customtkinter.StringVar(value=data[171]), customtkinter.StringVar(value=data[172]), customtkinter.StringVar(value=data[173]), customtkinter.StringVar(value=data[174])
+            self.individual_16_event_3, self.individual_17_event_3, self.individual_18_event_3, self.individual_19_event_3, self.individual_20_event_3 = customtkinter.StringVar(value=data[175]), customtkinter.StringVar(value=data[176]), customtkinter.StringVar(value=data[177]), customtkinter.StringVar(value=data[178]), customtkinter.StringVar(value=data[179])
+
+            ## event 4 ##
+
+            self.individual_1_event_4, self.individual_2_event_4, self.individual_3_event_4, self.individual_4_event_4, self.individual_5_event_4 = customtkinter.StringVar(value=data[180]), customtkinter.StringVar(value=data[181]), customtkinter.StringVar(value=data[182]), customtkinter.StringVar(value=data[183]), customtkinter.StringVar(value=data[184])
+            self.individual_6_event_4, self.individual_7_event_4, self.individual_8_event_4, self.individual_9_event_4, self.individual_10_event_4 = customtkinter.StringVar(value=data[185]), customtkinter.StringVar(value=data[186]), customtkinter.StringVar(value=data[187]), customtkinter.StringVar(value=data[188]), customtkinter.StringVar(value=data[189])
+            self.individual_11_event_4, self.individual_12_event_4, self.individual_13_event_4, self.individual_14_event_4, self.individual_15_event_4 = customtkinter.StringVar(value=data[190]), customtkinter.StringVar(value=data[191]), customtkinter.StringVar(value=data[192]), customtkinter.StringVar(value=data[193]), customtkinter.StringVar(value=data[194])
+            self.individual_16_event_4, self.individual_17_event_4, self.individual_18_event_4, self.individual_19_event_4, self.individual_20_event_4 = customtkinter.StringVar(value=data[195]), customtkinter.StringVar(value=data[196]), customtkinter.StringVar(value=data[197]), customtkinter.StringVar(value=data[198]), customtkinter.StringVar(value=data[199])
+
+            ## event 5 ##
+
+            self.individual_1_event_5, self.individual_2_event_5, self.individual_3_event_5, self.individual_4_event_5, self.individual_5_event_5 = customtkinter.StringVar(value=data[200]), customtkinter.StringVar(value=data[201]), customtkinter.StringVar(value=data[202]), customtkinter.StringVar(value=data[203]), customtkinter.StringVar(value=data[204])
+            self.individual_6_event_5, self.individual_7_event_5, self.individual_8_event_5, self.individual_9_event_5, self.individual_10_event_5 = customtkinter.StringVar(value=data[205]), customtkinter.StringVar(value=data[206]), customtkinter.StringVar(value=data[207]), customtkinter.StringVar(value=data[208]), customtkinter.StringVar(value=data[209])
+            self.individual_11_event_5, self.individual_12_event_5, self.individual_13_event_5, self.individual_14_event_5, self.individual_15_event_5 = customtkinter.StringVar(value=data[210]), customtkinter.StringVar(value=data[211]), customtkinter.StringVar(value=data[212]), customtkinter.StringVar(value=data[213]), customtkinter.StringVar(value=data[214])
+            self.individual_16_event_5, self.individual_17_event_5, self.individual_18_event_5, self.individual_19_event_5, self.individual_20_event_5 = customtkinter.StringVar(value=data[215]), customtkinter.StringVar(value=data[216]), customtkinter.StringVar(value=data[217]), customtkinter.StringVar(value=data[218]), customtkinter.StringVar(value=data[219])
+
     ## edit individuals menu ##
 
     ## edit individuals content ##
 
-        self.edit_individuals_event_1_menu = customtkinter.CTkFrame(self.root, width=850, height=800, )
-
-        # self.edit_individuals_event_1_menu.pack(pady=30)
-        # self.edit_individuals_frame_func()
+        self.edit_individuals_event_1_menu = customtkinter.CTkFrame(self.root, width=800, height=700, )
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
