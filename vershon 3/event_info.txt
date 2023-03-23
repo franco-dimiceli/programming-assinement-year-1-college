@@ -20,7 +20,7 @@
 000066
 Team patato
 Team tim
-Team avicardo
+team avicardo
 Team apple
 222222
 000000

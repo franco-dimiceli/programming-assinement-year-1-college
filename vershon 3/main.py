@@ -73,6 +73,8 @@ class my_gui:
 
         self.team_entry = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter team name", font=("roboto", 16), height=35, textvariable=team_name, ).grid(column=0, row=1, pady=10, padx=10, )
 
+        self.student_num_lable = customtkinter.CTkLabel(self.edit_teams_main_frame, font=("roboto", 14), text="enter student numbers:").grid(column=1, row=1, pady=10, padx=10,)
+
         self.individual_text_box_1 = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter individual 1", font=("roboto", 14), width=150, height=35, textvariable=variable_1, ).grid(column=1, row=2, pady=10, padx=10)
         self.individual_text_box_2 = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter individual 2", font=("roboto", 14), width=150, height=35, textvariable=variable_2, ).grid(column=1, row=3, pady=10, padx=10)
         self.individual_text_box_3 = customtkinter.CTkEntry(self.edit_teams_main_frame, placeholder_text="enter individual 3", font=("roboto", 14), width=150, height=35, textvariable=variable_3, ).grid(column=1, row=4, pady=10, padx=10)
@@ -192,6 +194,142 @@ class my_gui:
 
 ##      ##--------------------------------------------------------------------------------------------------------------
 
+## display scoreboard teams menu ##
+
+    def display_scoreboard_teams_frame(self, team_name_var, variable_1, variable_2, variable_3, variable_4, variable_5, place_var, points_var, ):
+
+        self.display_teams_frame = customtkinter.CTkFrame(self.display_scoreboard_for_teams, )
+
+        self.display_teams_frame.columnconfigure(0, weight=1)
+        self.display_teams_frame.columnconfigure(1, weight=1)
+        self.display_teams_frame.rowconfigure(0, weight=1)
+        self.display_teams_frame.rowconfigure(1, weight=1)
+        self.display_teams_frame.rowconfigure(2, weight=1)
+        self.display_teams_frame.rowconfigure(3, weight=1)
+        self.display_teams_frame.rowconfigure(4, weight=1)
+        self.display_teams_frame.rowconfigure(5, weight=1)
+        self.display_teams_frame.rowconfigure(6, weight=1)
+
+        self.place_label_for_teams = customtkinter.CTkLabel(self.display_teams_frame, font=self.the_font, text=place_var, ).grid(column=0, row=0, padx=10, pady=10,)
+
+        self.display_team_name_label = customtkinter.CTkLabel(self.display_teams_frame, text=team_name_var, font=self.the_font_small, width=150).grid(column=1, row=0, padx=10, pady=10, )
+
+        self.score_lable = customtkinter.CTkLabel(self.display_teams_frame, text=points_var, font=self.the_smaller_font).grid(column=1, row=1, padx=10, pady=10, )
+
+        self.individuals_lable = customtkinter.CTkLabel(self.display_teams_frame, text="individuals:", font=self.the_smaller_font).grid(column=2, row=1, padx=10, pady=10,)
+
+        self.individual_text_box_1 = customtkinter.CTkLabel(self.display_teams_frame, font=self.the_smaller_font, text=variable_1, ).grid(column=2, row=2, pady=10, padx=10)
+        self.individual_text_box_2 = customtkinter.CTkLabel(self.display_teams_frame, font=self.the_smaller_font, text=variable_2, ).grid(column=2, row=3, pady=10, padx=10)
+        self.individual_text_box_3 = customtkinter.CTkLabel(self.display_teams_frame, font=self.the_smaller_font, text=variable_3, ).grid(column=2, row=4, pady=10, padx=10)
+        self.individual_text_box_4 = customtkinter.CTkLabel(self.display_teams_frame, font=self.the_smaller_font, text=variable_4, ).grid(column=2, row=5, pady=10, padx=10)
+        self.individual_text_box_5 = customtkinter.CTkLabel(self.display_teams_frame, font=self.the_smaller_font, text=variable_5, ).grid(column=2, row=6, pady=10, padx=10)
+
+        return self.display_teams_frame
+
+    def event_1_display_score_board_for_teams(self):
+
+        self.display_scoreboard_teams_frame(self.team_1_event_1.get(), self.individual_1_team_1_event_1.get(), self.individual_2_team_1_event_1.get(), self.individual_3_team_1_event_1.get(), self.individual_4_team_1_event_1.get(), self.individual_5_team_1_event_1.get(), "1st place", "3 points").place(x=50, y=25)
+        self.display_scoreboard_teams_frame(self.team_2_event_1.get(), self.individual_1_team_2_event_1.get(), self.individual_2_team_2_event_1.get(), self.individual_3_team_2_event_1.get(), self.individual_4_team_2_event_1.get(), self.individual_5_team_2_event_1.get(), "2nd place", "2 points").place(x=50, y=415)
+        self.display_scoreboard_teams_frame(self.team_3_event_1.get(), self.individual_1_team_3_event_1.get(), self.individual_2_team_3_event_1.get(), self.individual_3_team_3_event_1.get(), self.individual_4_team_3_event_1.get(), self.individual_5_team_3_event_1.get(), "3rd place", "1 point").place(x=500, y=25)
+        self.display_scoreboard_teams_frame(self.team_4_event_1.get(), self.individual_1_team_4_event_1.get(), self.individual_2_team_4_event_1.get(), self.individual_3_team_4_event_1.get(), self.individual_4_team_4_event_1.get(), self.individual_5_team_4_event_1.get(), "4th place", "0 points").place(x=500, y=415)
+
+    def event_2_display_score_board_for_teams(self):
+
+        self.display_scoreboard_teams_frame(self.team_1_event_2.get(), self.individual_1_team_1_event_2.get(), self.individual_2_team_1_event_2.get(), self.individual_3_team_1_event_2.get(), self.individual_4_team_1_event_2.get(), self.individual_5_team_1_event_2.get(), "1st place", "3 points").place(x=50, y=25)
+        self.display_scoreboard_teams_frame(self.team_2_event_2.get(), self.individual_1_team_2_event_2.get(), self.individual_2_team_2_event_2.get(), self.individual_3_team_2_event_2.get(), self.individual_4_team_2_event_2.get(), self.individual_5_team_2_event_2.get(), "2nd place", "2 points").place(x=50, y=415)
+        self.display_scoreboard_teams_frame(self.team_3_event_2.get(), self.individual_1_team_3_event_2.get(), self.individual_2_team_3_event_2.get(), self.individual_3_team_3_event_2.get(), self.individual_4_team_3_event_2.get(), self.individual_5_team_3_event_2.get(), "3rd place", "1 point").place(x=500, y=25)
+        self.display_scoreboard_teams_frame(self.team_4_event_2.get(), self.individual_1_team_4_event_2.get(), self.individual_2_team_4_event_2.get(), self.individual_3_team_4_event_2.get(), self.individual_4_team_4_event_2.get(), self.individual_5_team_4_event_2.get(), "4th place", "0 points").place(x=500, y=415)
+
+    def event_3_display_score_board_for_teams(self):
+
+        self.display_scoreboard_teams_frame(self.team_1_event_3.get(), self.individual_1_team_1_event_3.get(), self.individual_2_team_1_event_3.get(), self.individual_3_team_1_event_3.get(), self.individual_4_team_1_event_3.get(), self.individual_5_team_1_event_3.get(), "1st place", "3 points").place(x=50, y=25)
+        self.display_scoreboard_teams_frame(self.team_2_event_3.get(), self.individual_1_team_2_event_3.get(), self.individual_2_team_2_event_3.get(), self.individual_3_team_2_event_3.get(), self.individual_4_team_2_event_3.get(), self.individual_5_team_2_event_3.get(), "2nd place", "2 points").place(x=50, y=415)
+        self.display_scoreboard_teams_frame(self.team_3_event_3.get(), self.individual_1_team_3_event_3.get(), self.individual_2_team_3_event_3.get(), self.individual_3_team_3_event_3.get(), self.individual_4_team_3_event_3.get(), self.individual_5_team_3_event_3.get(), "3rd place", "1 point").place(x=500, y=25)
+        self.display_scoreboard_teams_frame(self.team_4_event_3.get(), self.individual_1_team_4_event_3.get(), self.individual_2_team_4_event_3.get(), self.individual_3_team_4_event_3.get(), self.individual_4_team_4_event_3.get(), self.individual_5_team_4_event_3.get(), "4th place", "0 points").place(x=500, y=415)
+
+    def event_4_display_score_board_for_teams(self):
+
+        self.display_scoreboard_teams_frame(self.team_1_event_4.get(), self.individual_1_team_1_event_4.get(), self.individual_2_team_1_event_4.get(), self.individual_3_team_1_event_4.get(), self.individual_4_team_1_event_4.get(), self.individual_5_team_1_event_4.get(), "1st place", "3 points").place(x=50, y=25)
+        self.display_scoreboard_teams_frame(self.team_2_event_4.get(), self.individual_1_team_2_event_4.get(), self.individual_2_team_2_event_4.get(), self.individual_3_team_2_event_4.get(), self.individual_4_team_2_event_4.get(), self.individual_5_team_2_event_4.get(), "2nd place", "2 points").place(x=50, y=415)
+        self.display_scoreboard_teams_frame(self.team_3_event_4.get(), self.individual_1_team_3_event_4.get(), self.individual_2_team_3_event_4.get(), self.individual_3_team_3_event_4.get(), self.individual_4_team_3_event_4.get(), self.individual_5_team_3_event_4.get(), "3rd place", "1 point").place(x=500, y=25)
+        self.display_scoreboard_teams_frame(self.team_4_event_4.get(), self.individual_1_team_4_event_4.get(), self.individual_2_team_4_event_4.get(), self.individual_3_team_4_event_4.get(), self.individual_4_team_4_event_4.get(), self.individual_5_team_4_event_4.get(), "4th place", "0 points").place(x=500, y=415)
+
+    def event_5_display_score_board_for_teams(self):
+
+        self.display_scoreboard_teams_frame(self.team_1_event_5.get(), self.individual_1_team_1_event_5.get(), self.individual_2_team_1_event_5.get(), self.individual_3_team_1_event_5.get(), self.individual_4_team_1_event_5.get(), self.individual_5_team_1_event_5.get(), "1st place", "3 points").place(x=50, y=25)
+        self.display_scoreboard_teams_frame(self.team_2_event_5.get(), self.individual_1_team_2_event_5.get(), self.individual_2_team_2_event_5.get(), self.individual_3_team_2_event_5.get(), self.individual_4_team_2_event_5.get(), self.individual_5_team_2_event_5.get(), "2nd place", "2 points").place(x=50, y=415)
+        self.display_scoreboard_teams_frame(self.team_3_event_5.get(), self.individual_1_team_3_event_5.get(), self.individual_2_team_3_event_5.get(), self.individual_3_team_3_event_5.get(), self.individual_4_team_3_event_5.get(), self.individual_5_team_3_event_5.get(), "3rd place", "1 point").place(x=500, y=25)
+        self.display_scoreboard_teams_frame(self.team_4_event_5.get(), self.individual_1_team_4_event_5.get(), self.individual_2_team_4_event_5.get(), self.individual_3_team_4_event_5.get(), self.individual_4_team_4_event_5.get(), self.individual_5_team_4_event_5.get(), "4th place", "0 points").place(x=500, y=415)
+
+    def display_score_board_for_individuals_frame(self, place_variable_1, place_variable_2, place_variable_3, place_variable_4, place_variable_5, place_variable_6, place_variable_7, place_variable_8, place_variable_9, place_variable_10, individual_1, individual_2, individual_3, individual_4, individual_5, individual_6, individual_7, individual_8, individual_9, individual_10, score1, score2, score3, score4, score5, score6, score7, score8, score9, score10, ):
+
+        self.display_score_board_individuals_menu_1 = customtkinter.CTkFrame(self.display_score_board_individuals_menu_1_1, )
+
+        self.place_lable = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text="Rankings:", font=self.the_font_small, ).grid(column=0, row=0, padx=10, pady=10, )
+        self.individual_lable = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text="individuals:", font=self.the_font_small, ).grid(column=1, row=0, padx=10, pady=10, )
+        self.place_lable = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text="points:", font=self.the_font_small, ).grid(column=2, row=0, padx=10, pady=10, )
+
+        self.first_place_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=place_variable_1, font=self.the_font_small, ).grid(column=0, row=1, padx=10, pady=10, )
+        self.second_place_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=place_variable_2, font=self.the_font_small, ).grid(column=0, row=2, padx=10, pady=10, )
+        self.third_place_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=place_variable_3, font=self.the_font_small, ).grid(column=0, row=3, padx=10, pady=10, )
+        self.forth_place_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=place_variable_4, font=self.the_font_small, ).grid(column=0, row=4, padx=10, pady=10, )
+        self.fifth_place_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=place_variable_5, font=self.the_font_small, ).grid(column=0, row=5, padx=10, pady=10, )
+        self.sixth_place_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=place_variable_6, font=self.the_font_small, ).grid(column=0, row=6, padx=10, pady=10, )
+        self.seventh_place_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=place_variable_7, font=self.the_font_small, ).grid(column=0, row=7, padx=10, pady=10, )
+        self.eighth_place_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=place_variable_8, font=self.the_font_small, ).grid(column=0, row=8, padx=10, pady=10, )
+        self.ninth_place_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=place_variable_9, font=self.the_font_small, ).grid(column=0, row=9, padx=10, pady=10, )
+        self.tenth_place_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=place_variable_10, font=self.the_font_small, ).grid(column=0, row=10, padx=10, pady=10, )
+
+        self.individual_1_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=individual_1, font=self.the_font_small, ).grid(column=1, row=1, padx=10, pady=10, )
+        self.individual_2_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=individual_2, font=self.the_font_small, ).grid(column=1, row=2, padx=10, pady=10, )
+        self.individual_3_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=individual_3, font=self.the_font_small, ).grid(column=1, row=3, padx=10, pady=10, )
+        self.individual_4_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=individual_4, font=self.the_font_small, ).grid(column=1, row=4, padx=10, pady=10, )
+        self.individual_5_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=individual_5, font=self.the_font_small, ).grid(column=1, row=5, padx=10, pady=10, )
+        self.individual_6_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=individual_6, font=self.the_font_small, ).grid(column=1, row=6, padx=10, pady=10, )
+        self.individual_7_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=individual_7, font=self.the_font_small, ).grid(column=1, row=7, padx=10, pady=10, )
+        self.individual_8_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=individual_8, font=self.the_font_small, ).grid(column=1, row=8, padx=10, pady=10, )
+        self.individual_9_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=individual_9, font=self.the_font_small, ).grid(column=1, row=9, padx=10, pady=10, )
+        self.individual_10_label = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=individual_10, font=self.the_font_small, ).grid(column=1, row=10, padx=10, pady=10, )
+
+        self.score_1_lable = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=score1, font=self.the_font_small, ).grid(column=2, row=1, padx=10, pady=10, )
+        self.score_2_lable = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=score2, font=self.the_font_small, ).grid(column=2, row=2, padx=10, pady=10, )
+        self.score_3_lable = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=score3, font=self.the_font_small, ).grid(column=2, row=3, padx=10, pady=10, )
+        self.score_4_lable = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=score4, font=self.the_font_small, ).grid(column=2, row=4, padx=10, pady=10, )
+        self.score_5_lable = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=score5, font=self.the_font_small, ).grid(column=2, row=5, padx=10, pady=10, )
+        self.score_6_lable = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=score6, font=self.the_font_small, ).grid(column=2, row=6, padx=10, pady=10, )
+        self.score_7_lable = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=score7, font=self.the_font_small, ).grid(column=2, row=7, padx=10, pady=10, )
+        self.score_8_lable = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=score8, font=self.the_font_small, ).grid(column=2, row=8, padx=10, pady=10, )
+        self.score_9_lable = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=score9, font=self.the_font_small, ).grid(column=2, row=9, padx=10, pady=10, )
+        self.score_10_lable = customtkinter.CTkLabel(self.display_score_board_individuals_menu_1, text=score10, font=self.the_font_small, ).grid(column=2, row=10, padx=10, pady=10, )
+
+        return self.display_score_board_individuals_menu_1
+
+    def event_1_score_board_for_individuals(self):
+
+        self.display_score_board_for_individuals_frame("1st place", "2nd place", "3rd place", "4th place", "5th place", "6th place", "7th place", "8th place", "9th place", "10th place", self.individual_1_event_1.get(), self.individual_2_event_1.get(), self.individual_3_event_1.get(), self.individual_4_event_1.get(), self.individual_5_event_1.get(), self.individual_6_event_1.get(), self.individual_7_event_1.get(), self.individual_8_event_1.get(), self.individual_9_event_1.get(), self.individual_10_event_1.get(), "5 points", "4 points", "3 points", "2 points", "1 point", "0 points", "0 points", "0 points", "0 points", "0 points").place(x=25, y=40)
+        self.display_score_board_for_individuals_frame("11th place", "12th place", "13th place", "14th place", "15th place", "16th place", "17th place", "18th place", "19th place", "20th place", self.individual_11_event_1.get(), self.individual_12_event_1.get(), self.individual_13_event_1.get(), self.individual_14_event_1.get(), self.individual_15_event_1.get(), self.individual_16_event_1.get(), self.individual_17_event_1.get(), self.individual_18_event_1.get(), self.individual_19_event_1.get(), self.individual_20_event_1.get(), "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points").place(x=375, y=40)
+
+    def event_2_score_board_for_individuals(self):
+
+        self.display_score_board_for_individuals_frame("1st place", "2nd place", "3rd place", "4th place", "5th place", "6th place", "7th place", "8th place", "9th place", "10th place", self.individual_1_event_2.get(), self.individual_2_event_2.get(), self.individual_3_event_2.get(), self.individual_4_event_2.get(), self.individual_5_event_2.get(), self.individual_6_event_2.get(), self.individual_7_event_2.get(), self.individual_8_event_2.get(), self.individual_9_event_2.get(), self.individual_10_event_2.get(), "5 points", "4 points", "3 points", "2 points", "1 point", "0 points", "0 points", "0 points", "0 points", "0 points").place(x=25, y=40)
+        self.display_score_board_for_individuals_frame("11th place", "12th place", "13th place", "14th place", "15th place", "16th place", "17th place", "18th place", "19th place", "20th place", self.individual_11_event_2.get(), self.individual_12_event_2.get(), self.individual_13_event_2.get(), self.individual_14_event_2.get(), self.individual_15_event_2.get(), self.individual_16_event_2.get(), self.individual_17_event_2.get(), self.individual_18_event_2.get(), self.individual_19_event_2.get(), self.individual_20_event_2.get(), "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points").place(x=375, y=40)
+
+    def event_3_score_board_for_individuals(self):
+
+        self.display_score_board_for_individuals_frame("1st place", "2nd place", "3rd place", "4th place", "5th place", "6th place", "7th place", "8th place", "9th place", "10th place", self.individual_1_event_3.get(), self.individual_2_event_3.get(), self.individual_3_event_3.get(), self.individual_4_event_3.get(), self.individual_5_event_3.get(), self.individual_6_event_3.get(), self.individual_7_event_3.get(), self.individual_8_event_3.get(), self.individual_9_event_3.get(), self.individual_10_event_3.get(), "5 points", "4 points", "3 points", "2 points", "1 point", "0 points", "0 points", "0 points", "0 points", "0 points").place(x=25, y=40)
+        self.display_score_board_for_individuals_frame("11th place", "12th place", "13th place", "14th place", "15th place", "16th place", "17th place", "18th place", "19th place", "20th place", self.individual_11_event_3.get(), self.individual_12_event_3.get(), self.individual_13_event_3.get(), self.individual_14_event_3.get(), self.individual_15_event_3.get(), self.individual_16_event_3.get(), self.individual_17_event_3.get(), self.individual_18_event_3.get(), self.individual_19_event_3.get(), self.individual_20_event_3.get(), "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points").place(x=375, y=40)
+
+    def event_4_score_board_for_individuals(self):
+
+        self.display_score_board_for_individuals_frame("1st place", "2nd place", "3rd place", "4th place", "5th place", "6th place", "7th place", "8th place", "9th place", "10th place", self.individual_1_event_4.get(), self.individual_2_event_4.get(), self.individual_3_event_4.get(), self.individual_4_event_4.get(), self.individual_5_event_4.get(), self.individual_6_event_4.get(), self.individual_7_event_4.get(), self.individual_8_event_4.get(), self.individual_9_event_4.get(), self.individual_10_event_4.get(), "5 points", "4 points", "3 points", "2 points", "1 point", "0 points", "0 points", "0 points", "0 points", "0 points").place(x=25, y=40)
+        self.display_score_board_for_individuals_frame("11th place", "12th place", "13th place", "14th place", "15th place", "16th place", "17th place", "18th place", "19th place", "20th place", self.individual_11_event_4.get(), self.individual_12_event_4.get(), self.individual_13_event_4.get(), self.individual_14_event_4.get(), self.individual_15_event_4.get(), self.individual_16_event_4.get(), self.individual_17_event_4.get(), self.individual_18_event_4.get(), self.individual_19_event_4.get(), self.individual_20_event_4.get(), "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points").place(x=375, y=40)
+
+    def event_5_score_board_for_individuals(self):
+
+        self.display_score_board_for_individuals_frame("1st place", "2nd place", "3rd place", "4th place", "5th place", "6th place", "7th place", "8th place", "9th place", "10th place", self.individual_1_event_5.get(), self.individual_2_event_5.get(), self.individual_3_event_5.get(), self.individual_4_event_5.get(), self.individual_5_event_5.get(), self.individual_6_event_5.get(), self.individual_7_event_5.get(), self.individual_8_event_5.get(), self.individual_9_event_5.get(), self.individual_10_event_5.get(), "5 points", "4 points", "3 points", "2 points", "1 point", "0 points", "0 points", "0 points", "0 points", "0 points").place(x=25, y=40)
+        self.display_score_board_for_individuals_frame("11th place", "12th place", "13th place", "14th place", "15th place", "16th place", "17th place", "18th place", "19th place", "20th place", self.individual_11_event_5.get(), self.individual_12_event_5.get(), self.individual_13_event_5.get(), self.individual_14_event_5.get(), self.individual_15_event_5.get(), self.individual_16_event_5.get(), self.individual_17_event_5.get(), self.individual_18_event_5.get(), self.individual_19_event_5.get(), self.individual_20_event_5.get(), "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points", "0 points").place(x=375, y=40)
+
+##      ##--------------------------------------------------------------------------------------------------------------
 
 ## switching navigation frame functions ##
     def switch_to_events_menu_frame(self):
@@ -208,6 +346,7 @@ class my_gui:
         self.events_1_to_5_main_frame.pack_forget()
         self.editing_teams_frame.pack_forget()
         self.edit_individuals_event_1_menu.pack_forget()
+        self.display_scoreboard_for_teams.pack_forget()
 
     def switch_to_start_menu_frame(self):
 
@@ -222,6 +361,7 @@ class my_gui:
         self.events_1_to_5_main_frame.pack_forget()
         self.editing_teams_frame.pack_forget()
         self.edit_individuals_event_1_menu.pack_forget()
+        self.display_scoreboard_for_teams.pack_forget()
 
     def switch_to_edit_teams_and_individuals_frame(self):
 
@@ -236,6 +376,7 @@ class my_gui:
         self.events_1_to_5_main_frame.pack_forget()
         self.editing_teams_frame.pack_forget()
         self.edit_individuals_event_1_menu.pack_forget()
+        self.display_scoreboard_for_teams.pack_forget()
 
     def switch_to_display_scoreboard_frame(self):
 
@@ -262,6 +403,18 @@ class my_gui:
         self.event_1_to_5_buttons_frame(self.event_1_variable, self.event_2_variable, self.event_3_variable, self.event_4_variable, self.event_5_variable, self.switch_to_event_1_frame_individuals_menu, self.switch_to_event_2_frame_individuals_menu, self.switch_to_event_3_frame_individuals_menu, self.switch_to_event_4_frame_individuals_menu, self.switch_to_event_5_frame_individuals_menu).pack(pady=250)
 
         self.edit_teams_and_individuals_content_frame.pack_forget()
+
+    def switch_to_teams_display_score_board_menu(self):
+
+        self.event_1_to_5_buttons_frame(self.event_1_variable, self.event_2_variable, self.event_3_variable, self.event_4_variable, self.event_5_variable, self.switch_to_event_1_display_scoreboard_for_teams, self.switch_to_event_2_display_scoreboard_for_teams, self.switch_to_event_2_display_scoreboard_for_teams, self.switch_to_event_2_display_scoreboard_for_teams, self.switch_to_event_2_display_scoreboard_for_teams).pack(pady=250)
+
+        self.display_scoreboard_content_frame.pack_forget()
+
+    def switch_to_individuals_display_score_board_menu(self):
+
+        self.event_1_to_5_buttons_frame(self.event_1_variable, self.event_2_variable, self.event_3_variable, self.event_4_variable, self.event_5_variable, self.switch_to_event_1_display_scoreBoard_for_individuals, self.switch_to_event_2_display_scoreBoard_for_individuals, self.switch_to_event_3_display_scoreBoard_for_individuals, self.switch_to_event_4_display_scoreBoard_for_individuals, self.switch_to_event_5_display_scoreBoard_for_individuals).pack(pady=250)
+
+        self.display_scoreboard_content_frame.pack_forget()
 
     def switch_to_event_1_frame_teams_menu(self):
 
@@ -330,6 +483,76 @@ class my_gui:
 
         self.edit_individuals_event_1_menu.pack(pady=30)
         self.edit_individuals_frame_event_5()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_1_display_scoreboard_for_teams(self):
+
+        self.display_scoreboard_for_teams.pack(pady=30)
+        self.event_1_display_score_board_for_teams()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_2_display_scoreboard_for_teams(self):
+
+        self.display_scoreboard_for_teams.pack(pady=30)
+        self.event_2_display_score_board_for_teams()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_3_display_scoreboard_for_teams(self):
+
+        self.display_scoreboard_for_teams.pack(pady=30)
+        self.event_3_display_score_board_for_teams()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_4_display_scoreboard_for_teams(self):
+
+        self.display_scoreboard_for_teams.pack(pady=30)
+        self.event_4_display_score_board_for_teams()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_5_display_scoreboard_for_teams(self):
+
+        self.display_scoreboard_for_teams.pack(pady=30)
+        self.event_5_display_score_board_for_teams()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_1_display_scoreBoard_for_individuals(self):
+
+        self.display_score_board_individuals_menu_1_1.pack(pady=30)
+        self.event_1_score_board_for_individuals()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_2_display_scoreBoard_for_individuals(self):
+
+        self.display_score_board_individuals_menu_1_1.pack(pady=30)
+        self.event_2_score_board_for_individuals()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_3_display_scoreBoard_for_individuals(self):
+
+        self.display_score_board_individuals_menu_1_1.pack(pady=30)
+        self.event_3_score_board_for_individuals()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_4_display_scoreBoard_for_individuals(self):
+
+        self.display_score_board_individuals_menu_1_1.pack(pady=30)
+        self.event_4_score_board_for_individuals()
+
+        self.events_1_to_5_main_frame.pack_forget()
+
+    def switch_to_event_5_display_scoreBoard_for_individuals(self):
+
+        self.display_score_board_individuals_menu_1_1.pack(pady=30)
+        self.event_5_score_board_for_individuals()
 
         self.events_1_to_5_main_frame.pack_forget()
 
@@ -821,6 +1044,8 @@ class my_gui:
 
         self.the_font_small = customtkinter.CTkFont(family="roboto", size=18, weight="bold")
 
+        self.the_smaller_font = customtkinter.CTkFont(family="roboto", size=16, weight="bold")
+
     ## frames ##
 
 ##        ##------------------------------------------------------------------------------------------------------------
@@ -1052,8 +1277,6 @@ class my_gui:
             self.individual_11_event_5, self.individual_12_event_5, self.individual_13_event_5, self.individual_14_event_5, self.individual_15_event_5 = customtkinter.StringVar(value=data[210]), customtkinter.StringVar(value=data[211]), customtkinter.StringVar(value=data[212]), customtkinter.StringVar(value=data[213]), customtkinter.StringVar(value=data[214])
             self.individual_16_event_5, self.individual_17_event_5, self.individual_18_event_5, self.individual_19_event_5, self.individual_20_event_5 = customtkinter.StringVar(value=data[215]), customtkinter.StringVar(value=data[216]), customtkinter.StringVar(value=data[217]), customtkinter.StringVar(value=data[218]), customtkinter.StringVar(value=data[219])
 
-    ## edit individuals menu ##
-
     ## edit individuals content ##
 
         self.edit_individuals_event_1_menu = customtkinter.CTkFrame(self.root, width=800, height=700, )
@@ -1089,9 +1312,17 @@ class my_gui:
         self.display_scoreboard_content_frame.columnconfigure(0, weight=0, )
         self.display_scoreboard_content_frame.columnconfigure(1, weight=0, )
 
-        self.edit_individuals_button = customtkinter.CTkButton(self.display_scoreboard_content_frame, text="Display individual scoreboards", font=self.the_font, height=600, width=400, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=0, padx=100, pady=50)
+        self.edit_individuals_button = customtkinter.CTkButton(self.display_scoreboard_content_frame, text="Display individual scoreboards", font=self.the_font, height=600, width=400, hover_color="#25b2a1", fg_color="#002542", command=self.switch_to_individuals_display_score_board_menu).grid(row=0, column=0, padx=100, pady=50)
 
-        self.edit_teams_button = customtkinter.CTkButton(self.display_scoreboard_content_frame, text="Display team scoreboards", font=self.the_font, height=600, width=400, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=1, padx=100, pady=50)
+        self.edit_teams_button = customtkinter.CTkButton(self.display_scoreboard_content_frame, text="Display team scoreboards", font=self.the_font, height=600, width=400, hover_color="#25b2a1", fg_color="#002542", command=self.switch_to_teams_display_score_board_menu).grid(row=0, column=1, padx=100, pady=50)
+
+    ## display scoreboard content frame ##
+
+        self.display_scoreboard_for_teams = customtkinter.CTkFrame(self.root, width=900, height=800,)
+
+    ## display individuals score board content ##
+
+        self.display_score_board_individuals_menu_1_1 = customtkinter.CTkFrame(self.root, width=750, height=600)
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
