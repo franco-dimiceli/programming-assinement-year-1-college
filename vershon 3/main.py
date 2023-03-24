@@ -3,7 +3,7 @@
 
 import customtkinter
 from tkinter import messagebox
-
+from PIL import Image
 class my_gui:
 
 ##        ##------------------------------------------------------------------------------------------------------------
@@ -331,6 +331,42 @@ class my_gui:
 
 ##      ##--------------------------------------------------------------------------------------------------------------
 
+## checking password function ##
+    def password_check(self):
+
+        self.pass_input = self.password.get()
+
+        self.pass_validashion_points = 0
+
+        if self.pass_input == "":
+
+            self.msg.showinfo(title="Error", message="password must not be blank")
+
+        else:
+
+            self.pass_validashion_points = self.pass_validashion_points + 1
+
+        if self.pass_input != "Password":
+
+            self.msg.showinfo(title="Error", message=(self.pass_input + ": is the incorrect password try agian"))
+
+        else:
+
+            self.pass_validashion_points = self.pass_validashion_points + 1
+
+        if self.pass_validashion_points == 2:
+
+            self.pack_the_start_menu()
+
+## inital startup of program after password was entered ##
+
+    def pack_the_start_menu(self):
+
+        self.password_frame.pack_forget()
+
+        self.navigation_button_frame.pack(fill="x", )
+        self.start_menu_content_frame.pack(pady=40, )
+
 ## switching navigation frame functions ##
     def switch_to_events_menu_frame(self):
 
@@ -343,14 +379,17 @@ class my_gui:
         self.display_scoreboard_frame_navigation.pack_forget()
         self.edit_teams_and_individuals_content_frame.pack_forget()
         self.display_scoreboard_content_frame.pack_forget()
+        self.start_menu_content_frame.pack_forget()
+        self.edit_individuals_event_1_menu.pack_forget()
+        self.display_score_board_individuals_menu_1_1.pack_forget()
         self.events_1_to_5_main_frame.pack_forget()
         self.editing_teams_frame.pack_forget()
-        self.edit_individuals_event_1_menu.pack_forget()
         self.display_scoreboard_for_teams.pack_forget()
 
     def switch_to_start_menu_frame(self):
 
         self.navigation_button_frame.pack(fill="x", )
+        self.start_menu_content_frame.pack(pady=40)
 
         self.event_menu_frame_navigation.pack_forget()
         self.teams_and_individuals_frame_navigation.pack_forget()
@@ -358,9 +397,10 @@ class my_gui:
         self.edit_teams_and_individuals_content_frame.pack_forget()
         self.display_scoreboard_content_frame.pack_forget()
         self.new_frame.place_forget()
+        self.edit_individuals_event_1_menu.pack_forget()
+        self.display_score_board_individuals_menu_1_1.pack_forget()
         self.events_1_to_5_main_frame.pack_forget()
         self.editing_teams_frame.pack_forget()
-        self.edit_individuals_event_1_menu.pack_forget()
         self.display_scoreboard_for_teams.pack_forget()
 
     def switch_to_edit_teams_and_individuals_frame(self):
@@ -373,9 +413,11 @@ class my_gui:
         self.display_scoreboard_frame_navigation.pack_forget()
         self.display_scoreboard_content_frame.pack_forget()
         self.new_frame.place_forget()
+        self.start_menu_content_frame.pack_forget()
+        self.edit_individuals_event_1_menu.pack_forget()
+        self.display_score_board_individuals_menu_1_1.pack_forget()
         self.events_1_to_5_main_frame.pack_forget()
         self.editing_teams_frame.pack_forget()
-        self.edit_individuals_event_1_menu.pack_forget()
         self.display_scoreboard_for_teams.pack_forget()
 
     def switch_to_display_scoreboard_frame(self):
@@ -388,9 +430,11 @@ class my_gui:
         self.teams_and_individuals_frame_navigation.pack_forget()
         self.edit_teams_and_individuals_content_frame.pack_forget()
         self.new_frame.place_forget()
+        self.start_menu_content_frame.pack_forget()
+        self.edit_individuals_event_1_menu.pack_forget()
+        self.display_score_board_individuals_menu_1_1.pack_forget()
         self.events_1_to_5_main_frame.pack_forget()
         self.editing_teams_frame.pack_forget()
-        self.edit_individuals_event_1_menu.pack_forget()
 
     def switch_to_edit_teams_menu(self):
 
@@ -1030,7 +1074,7 @@ class my_gui:
 
         self.root.title("scoring system")
 
-        self.root.geometry("1300x1000")
+        self.root.geometry("1300x1000+500+100")
 
     ## gets rid of the close, minimise and maximize options at the top 1 = get rid, 0 = its still there ##
 
@@ -1046,7 +1090,25 @@ class my_gui:
 
         self.the_smaller_font = customtkinter.CTkFont(family="roboto", size=16, weight="bold")
 
+        self.password = customtkinter.StringVar()
+
     ## frames ##
+
+##        ##------------------------------------------------------------------------------------------------------------
+
+    ## password frame ##
+
+        self.password_frame = customtkinter.CTkFrame(self.root, height=300, width=300, )
+
+        self.password_label = customtkinter.CTkLabel(self.password_frame, font=self.the_font, text="Enter password:").pack(pady=10, padx=10)
+
+        self.password_entry = customtkinter.CTkEntry(self.password_frame, textvariable=self.password, font=self.the_smaller_font, ).pack(pady=10, padx=10)
+
+        self.loggin_button = customtkinter.CTkButton(self.password_frame, font=self.the_font, text="\nLogin\n", hover_color="#25b2a1", fg_color="#002542", command=self.password_check, ).pack(pady=10, padx=10)
+
+        self.close_the_program_button = customtkinter.CTkButton(self.password_frame, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="\nClose program\n", command=self.close_the_program).pack(pady=10, padx=10)
+
+        self.password_frame.pack(pady=100, )
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
@@ -1070,11 +1132,33 @@ class my_gui:
 
         self.close_program_button = customtkinter.CTkButton(self.navigation_button_frame, text="\nClose program\n", font=self.the_font, height=0, command=self.close_the_program, fg_color="#002542", hover_color="#25b2a1").grid(row=0, column=4, sticky=customtkinter.W + customtkinter.E,)
 
-        self.navigation_button_frame.pack(fill="x", )
-
 ##        ##------------------------------------------------------------------------------------------------------------
 
     ## start menu content ##
+
+        self.start_menu_content_frame = customtkinter.CTkFrame(self.root, width=800, height=600, )
+
+        self.description_of_program_label = customtkinter.CTkLabel(self.start_menu_content_frame, font=self.the_smaller_font, text="This program will allow you to score diffrent events and display the scores."+"\n"+"You can start of by going to the edit events menu to edit the names of each event." + "\n" + " Then you can go to the edit teams and individuals menu where you can input all of the indivuals student numbers and team names." + "\n" +"Finally you can go to the display scoreboard menu to see the results of each event").pack(pady=10, padx=10, )
+
+        self.nottingham_college_logo = customtkinter.CTkImage(Image.open("nottingham_college_logo.png"), size=(384, 384), )
+
+        self.nottingham_college_logo_packing = customtkinter.CTkButton(self.start_menu_content_frame, image=self.nottingham_college_logo, text="", fg_color="transparent", state="disabled").pack(pady=10)
+
+        self.settings_icon = customtkinter.CTkImage(Image.open("settings_icon.png"), size=(48, 48))
+
+        self.setting_button = customtkinter.CTkButton(self.start_menu_content_frame, image=self.settings_icon, fg_color="transparent", text="", width=48, ).place(x=10, y=425)
+
+##        ##------------------------------------------------------------------------------------------------------------
+
+    ## settings icon content ##
+
+        self.settings_icon_content_frame = customtkinter.CTkFrame(self.root, width=300, height=800, )
+
+        self.drop_down_selection = customtkinter.StringVar()
+
+        self.drop_down_menu_for_theme = customtkinter.CTkComboBox(self.settings_icon_content_frame, values=["Dark", "Light", "System"], variable=self.drop_down_selection, font=self.the_font_small, ).place(x=10, y=10)
+
+        self.settings_icon_content_frame.place(x=10, y=10)
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
