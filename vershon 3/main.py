@@ -35,6 +35,8 @@ class my_gui:
         self.edit_events_content_frame(self.event_4_variable).place(x=50, y=400)
         self.edit_events_content_frame(self.event_5_variable).place(x=50, y=525)
 
+        self.save_changes_button = customtkinter.CTkButton(self.new_frame, command=self.event_validashion_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes", height=45, ).place(x=400, y=640)
+
 ##      ##--------------------------------------------------------------------------------------------------------------
 
 ## edit teams and individuals navigation frame ##
@@ -90,7 +92,7 @@ class my_gui:
         self.edit_teams_content_frame("3rd place", self.individual_1_team_3_event_1, self.individual_2_team_3_event_1, self.individual_3_team_3_event_1, self.individual_4_team_3_event_1, self.individual_5_team_3_event_1, self.team_2_event_1, ).place(x=50, y=415)
         self.edit_teams_content_frame("2nd place", self.individual_1_team_2_event_1, self.individual_2_team_2_event_1, self.individual_3_team_2_event_1, self.individual_4_team_2_event_1, self.individual_5_team_2_event_1, self.team_3_event_1, ).place(x=500, y=25)
         self.edit_teams_content_frame("4th place", self.individual_1_team_4_event_1, self.individual_2_team_4_event_1, self.individual_3_team_4_event_1, self.individual_4_team_4_event_1, self.individual_5_team_4_event_1, self.team_4_event_1, ).place(x=500, y=415)
-        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_1_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=750, y=800)
+        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_1_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes").place(x=750, y=800)
 
     def edit_team_content_frame_for_event_2(self):
 
@@ -98,7 +100,7 @@ class my_gui:
         self.edit_teams_content_frame("3rd place", self.individual_1_team_3_event_2, self.individual_2_team_3_event_2, self.individual_3_team_3_event_2, self.individual_4_team_3_event_2, self.individual_5_team_3_event_2, self.team_2_event_2, ).place(x=50, y=415)
         self.edit_teams_content_frame("2nd place", self.individual_1_team_2_event_2, self.individual_2_team_2_event_2, self.individual_3_team_2_event_2, self.individual_4_team_2_event_2, self.individual_5_team_2_event_2, self.team_3_event_2, ).place(x=500, y=25)
         self.edit_teams_content_frame("4th place", self.individual_1_team_4_event_2, self.individual_2_team_4_event_2, self.individual_3_team_4_event_2, self.individual_4_team_4_event_2, self.individual_5_team_4_event_2, self.team_4_event_2, ).place(x=500, y=415)
-        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_2_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=750, y=800)
+        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_2_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes").place(x=750, y=800)
 
     def edit_team_content_frame_for_event_3(self):
 
@@ -106,7 +108,7 @@ class my_gui:
         self.edit_teams_content_frame("3rd place", self.individual_1_team_3_event_3, self.individual_2_team_3_event_3, self.individual_3_team_3_event_3, self.individual_4_team_3_event_3, self.individual_5_team_3_event_3, self.team_2_event_3, ).place(x=50, y=415)
         self.edit_teams_content_frame("2nd place", self.individual_1_team_2_event_3, self.individual_2_team_2_event_3, self.individual_3_team_2_event_3, self.individual_4_team_2_event_3, self.individual_5_team_2_event_3, self.team_3_event_3, ).place(x=500, y=25)
         self.edit_teams_content_frame("4th place", self.individual_1_team_4_event_3, self.individual_2_team_4_event_3, self.individual_3_team_4_event_3, self.individual_4_team_4_event_3, self.individual_5_team_4_event_3, self.team_4_event_3, ).place(x=500, y=415)
-        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_3_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=750, y=800)
+        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_3_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes").place(x=750, y=800)
 
     def edit_team_content_frame_for_event_4(self):
 
@@ -114,7 +116,7 @@ class my_gui:
         self.edit_teams_content_frame("3rd place", self.individual_1_team_3_event_4, self.individual_2_team_3_event_4, self.individual_3_team_3_event_4, self.individual_4_team_3_event_4, self.individual_5_team_3_event_4, self.team_2_event_4, ).place(x=50, y=415)
         self.edit_teams_content_frame("2nd place", self.individual_1_team_2_event_4, self.individual_2_team_2_event_4, self.individual_3_team_2_event_4, self.individual_4_team_2_event_4, self.individual_5_team_2_event_4, self.team_3_event_4, ).place(x=500, y=25)
         self.edit_teams_content_frame("4th place", self.individual_1_team_4_event_4, self.individual_2_team_4_event_4, self.individual_3_team_4_event_4, self.individual_4_team_4_event_4, self.individual_5_team_4_event_4, self.team_4_event_4, ).place(x=500, y=415)
-        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_4_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=750, y=800)
+        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_4_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes").place(x=750, y=800)
 
     def edit_team_content_frame_for_event_5(self):
 
@@ -122,7 +124,7 @@ class my_gui:
         self.edit_teams_content_frame("3rd place", self.individual_1_team_3_event_5, self.individual_2_team_3_event_5, self.individual_3_team_3_event_5, self.individual_4_team_3_event_5, self.individual_5_team_3_event_5, self.team_2_event_5, ).place(x=50, y=415)
         self.edit_teams_content_frame("2nd place", self.individual_1_team_2_event_5, self.individual_2_team_2_event_5, self.individual_3_team_2_event_5, self.individual_4_team_2_event_5, self.individual_5_team_2_event_5, self.team_3_event_5, ).place(x=500, y=25)
         self.edit_teams_content_frame("4th place", self.individual_1_team_4_event_5, self.individual_2_team_4_event_5, self.individual_3_team_4_event_5, self.individual_4_team_4_event_5, self.individual_5_team_4_event_5, self.team_4_event_5, ).place(x=500, y=415)
-        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_5_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=750, y=800)
+        self.save_and_back_button = customtkinter.CTkButton(self.editing_teams_frame, command=self.data_validashion_for_event_5_teams_all_func, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes").place(x=750, y=800)
 
     ## editing individuals frame #
     def edit_individuals_frame(self, place_variable_1, place_variable_2, place_variable_3, place_variable_4, place_variable_5, place_variable_6, place_variable_7, place_variable_8, place_variable_9, place_variable_10, text_var_1, text_var_2, text_var_3, text_var_4, text_var_5, text_var_6, text_var_7, text_var_8, text_var_9, text_var_10, ):
@@ -165,32 +167,32 @@ class my_gui:
 
         self.edit_individuals_frame("1st place", "2nd place", "3rd place", "4th place", "5th place", "6th place", "7th place", "8th place", "9th place", "10th place", self.individual_1_event_1, self.individual_2_event_1, self.individual_3_event_1, self.individual_4_event_1, self.individual_5_event_1, self.individual_6_event_1, self.individual_7_event_1, self.individual_8_event_1, self.individual_9_event_1, self.individual_10_event_1, ).place(x=100, y=50)
         self.edit_individuals_frame("11th place", "12th place", "13th place", "14th place", "15th place", "16th place", "17th place", "18th place", "19th place", "20th place", self.individual_11_event_1, self.individual_12_event_1, self.individual_13_event_1, self.individual_14_event_1, self.individual_15_event_1, self.individual_16_event_1, self.individual_17_event_1, self.individual_18_event_1, self.individual_19_event_1, self.individual_20_event_1, ).place(x=400, y=50)
-        self.save_and_back_button = customtkinter.CTkButton(self.edit_individuals_event_1_menu, command=self.data_validashon_for_event_1_all_individuals, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=500, y=600)
+        self.save_and_back_button = customtkinter.CTkButton(self.edit_individuals_event_1_menu, command=self.data_validashon_for_event_1_all_individuals, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes").place(x=500, y=600)
 
 
     def edit_individuals_frame_event_2(self):
 
         self.edit_individuals_frame("1st place", "2nd place", "3rd place", "4th place", "5th place", "6th place", "7th place", "8th place", "9th place", "10th place", self.individual_1_event_2, self.individual_2_event_2, self.individual_3_event_2, self.individual_4_event_2, self.individual_5_event_2, self.individual_6_event_2, self.individual_7_event_2, self.individual_8_event_2, self.individual_9_event_2, self.individual_10_event_2, ).place(x=100, y=50)
         self.edit_individuals_frame("11th place", "12th place", "13th place", "14th place", "15th place", "16th place", "17th place", "18th place", "19th place", "20th place", self.individual_11_event_2, self.individual_12_event_2, self.individual_13_event_2, self.individual_14_event_2, self.individual_15_event_2, self.individual_16_event_2, self.individual_17_event_2, self.individual_18_event_2, self.individual_19_event_2, self.individual_20_event_2, ).place(x=400, y=50)
-        self.save_and_back_button = customtkinter.CTkButton(self.edit_individuals_event_1_menu, command=self.data_validashon_for_event_2_all_individuals, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=500, y=600)
+        self.save_and_back_button = customtkinter.CTkButton(self.edit_individuals_event_1_menu, command=self.data_validashon_for_event_2_all_individuals, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes").place(x=500, y=600)
 
     def edit_individuals_frame_event_3(self):
 
         self.edit_individuals_frame("1st place", "2nd place", "3rd place", "4th place", "5th place", "6th place", "7th place", "8th place", "9th place", "10th place", self.individual_1_event_3, self.individual_2_event_3, self.individual_3_event_3, self.individual_4_event_3, self.individual_5_event_3, self.individual_6_event_3, self.individual_7_event_3, self.individual_8_event_3, self.individual_9_event_3, self.individual_10_event_3, ).place(x=100, y=50)
         self.edit_individuals_frame("11th place", "12th place", "13th place", "14th place", "15th place", "16th place", "17th place", "18th place", "19th place", "20th place", self.individual_11_event_3, self.individual_12_event_3, self.individual_13_event_3, self.individual_14_event_3, self.individual_15_event_3, self.individual_16_event_3, self.individual_17_event_3, self.individual_18_event_3, self.individual_19_event_3, self.individual_20_event_3, ).place(x=400, y=50)
-        self.save_and_back_button = customtkinter.CTkButton(self.edit_individuals_event_1_menu, command=self.data_validashon_for_event_3_all_individuals, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=500, y=600)
+        self.save_and_back_button = customtkinter.CTkButton(self.edit_individuals_event_1_menu, command=self.data_validashon_for_event_3_all_individuals, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes").place(x=500, y=600)
 
     def edit_individuals_frame_event_4(self):
 
         self.edit_individuals_frame("1st place", "2nd place", "3rd place", "4th place", "5th place", "6th place", "7th place", "8th place", "9th place", "10th place", self.individual_1_event_2, self.individual_2_event_4, self.individual_3_event_4, self.individual_4_event_4, self.individual_5_event_4, self.individual_6_event_4, self.individual_7_event_4, self.individual_8_event_4, self.individual_9_event_4, self.individual_10_event_4 ).place(x=100, y=50)
         self.edit_individuals_frame("11th place", "12th place", "13th place", "14th place", "15th place", "16th place", "17th place", "18th place", "19th place", "20th place", self.individual_11_event_4, self.individual_12_event_4, self.individual_13_event_4, self.individual_14_event_4, self.individual_15_event_4, self.individual_16_event_4, self.individual_17_event_4, self.individual_18_event_4, self.individual_19_event_4, self.individual_20_event_4, ).place(x=400, y=50)
-        self.save_and_back_button = customtkinter.CTkButton(self.edit_individuals_event_1_menu, command=self.data_validashon_for_event_4_all_individuals, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=500, y=600)
+        self.save_and_back_button = customtkinter.CTkButton(self.edit_individuals_event_1_menu, command=self.data_validashon_for_event_4_all_individuals, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes").place(x=500, y=600)
 
     def edit_individuals_frame_event_5(self):
 
         self.edit_individuals_frame("1st place", "2nd place", "3rd place", "4th place", "5th place", "6th place", "7th place", "8th place", "9th place", "10th place", self.individual_1_event_5, self.individual_2_event_5, self.individual_3_event_5, self.individual_4_event_5, self.individual_5_event_5, self.individual_6_event_5, self.individual_7_event_5, self.individual_8_event_5, self.individual_9_event_5, self.individual_10_event_5, ).place(x=100, y=50)
         self.edit_individuals_frame("11th place", "12th place", "13th place", "14th place", "15th place", "16th place", "17th place", "18th place", "19th place", "20th place", self.individual_11_event_5, self.individual_12_event_5, self.individual_13_event_5, self.individual_14_event_5, self.individual_15_event_5, self.individual_16_event_5, self.individual_17_event_5, self.individual_18_event_5, self.individual_19_event_5, self.individual_20_event_5, ).place(x=400, y=50)
-        self.save_and_back_button = customtkinter.CTkButton(self.edit_individuals_event_1_menu, command=self.data_validashon_for_event_5_all_individuals, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes and go back").place(x=500, y=600)
+        self.save_and_back_button = customtkinter.CTkButton(self.edit_individuals_event_1_menu, command=self.data_validashon_for_event_5_all_individuals, font=self.the_font, hover_color="#25b2a1", fg_color="#002542", text="Save changes").place(x=500, y=600)
 
 ##      ##--------------------------------------------------------------------------------------------------------------
 
@@ -607,6 +609,60 @@ class my_gui:
             self.root.destroy()
 
 ##      ##--------------------------------------------------------------------------------------------------------------
+
+    ## settings menu ##
+
+    def display_settings_menu(self):
+
+        self.settings_icon_content_frame.place(x=15, y=90)
+
+    ## settings functions ##
+
+    def close_settings_menu(self):
+
+        self.settings_icon_content_frame.place_forget()
+
+    def theme_drop_down_check(self, choice):
+
+        if choice == "Light":
+
+            customtkinter.set_appearance_mode("Light")
+
+        elif choice == "Dark":
+
+            customtkinter.set_appearance_mode("Dark")
+
+        elif choice == "System":
+
+            customtkinter.set_appearance_mode("System")
+
+    ## data storage and validashion for events ##
+
+    def check_event_name_input(self, input, line_num, ):
+
+        self.event_input = input
+
+        self.validashion_event_points = 0
+
+        if self.event_input == "":
+
+            self.msg.showinfo(title="Error", message=("Team names cant be blank, if there is no team just leave the teams as team 1, team 2, team 3 and team 4"))
+
+        else:
+
+            self.validashion_event_points = self.validashion_event_points + 1
+
+        if len(self.event_input) > 15:
+
+            self.msg.showinfo(title="Error", message=(self.event_input + ": cant be more then 15 charicters"))
+
+        else:
+
+            self.validashion_event_points = self.validashion_event_points + 1
+
+        if self.validashion_event_points == 2:
+
+            self.save_team_names(self.event_input, line_num)
 
     ## data storage for teams ##
 
@@ -1064,6 +1120,15 @@ class my_gui:
         self.check_student_num_input(self.individual_19_event_5.get(), 218)
         self.check_student_num_input(self.individual_20_event_5.get(), 219)
 
+    ## events validashion func ##
+    def event_validashion_func(self):
+
+        self.check_event_name_input(self.event_1_variable.get(), 220)
+        self.check_event_name_input(self.event_2_variable.get(), 221)
+        self.check_event_name_input(self.event_3_variable.get(), 222)
+        self.check_event_name_input(self.event_4_variable.get(), 223)
+        self.check_event_name_input(self.event_5_variable.get(), 224)
+
 ##      ##--------------------------------------------------------------------------------------------------------------
 
     def __init__(self):
@@ -1146,7 +1211,7 @@ class my_gui:
 
         self.settings_icon = customtkinter.CTkImage(Image.open("settings_icon.png"), size=(48, 48))
 
-        self.setting_button = customtkinter.CTkButton(self.start_menu_content_frame, image=self.settings_icon, fg_color="transparent", text="", width=48, ).place(x=10, y=425)
+        self.setting_button = customtkinter.CTkButton(self.start_menu_content_frame, image=self.settings_icon, fg_color="transparent", text="", width=48, command=self.display_settings_menu, hover=False, ).place(x=10, y=425)
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
@@ -1156,9 +1221,11 @@ class my_gui:
 
         self.drop_down_selection = customtkinter.StringVar()
 
-        self.drop_down_menu_for_theme = customtkinter.CTkComboBox(self.settings_icon_content_frame, values=["Dark", "Light", "System"], variable=self.drop_down_selection, font=self.the_font_small, ).place(x=10, y=10)
+        self.change_theme_label = customtkinter.CTkLabel(self.settings_icon_content_frame, text="Change couler theme:", font=self.the_font_small, ).place(x=10, y=10)
 
-        self.settings_icon_content_frame.place(x=10, y=10)
+        self.drop_down_menu_for_theme = customtkinter.CTkComboBox(self.settings_icon_content_frame, values=["Dark", "Light", "System"], variable=self.drop_down_selection, font=self.the_font_small, command=self.theme_drop_down_check, fg_color="#002542", button_hover_color="#25b2a1", dropdown_hover_color="#25b2a1", dropdown_fg_color="#002542", border_color="#002542", text_color="white", dropdown_text_color="white", dropdown_font=self.the_smaller_font, button_color="#002542",).place(x=10, y=50)
+
+        self.close_button = customtkinter.CTkButton(self.settings_icon_content_frame, text="Close", font=self.the_font, hover_color="#25b2a1", fg_color="#002542", command=self.close_settings_menu, height=45, ).place(x=10, y=750)
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
@@ -1172,7 +1239,7 @@ class my_gui:
         self.event_menu_frame_navigation.columnconfigure(3, weight=1, )
         self.event_menu_frame_navigation.columnconfigure(4, weight=1, )
 
-        self.display_scoreboard_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nDisplay scoreboard\n", font=self.the_font, height=0, command=self.switch_to_display_scoreboard_frame, hover_color="#02557a", fg_color="#002542").grid(row=0, column=0, sticky=customtkinter.W + customtkinter.E)
+        self.display_scoreboard_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nDisplay scoreboard\n", font=self.the_font, height=0, command=self.switch_to_display_scoreboard_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=0, sticky=customtkinter.W + customtkinter.E)
 
         self.edit_teams_and_individuals_button = customtkinter.CTkButton(self.event_menu_frame_navigation, text="\nEdit teams and individuals\n", font=self.the_font, height=2, command=self.switch_to_edit_teams_and_individuals_frame, hover_color="#25b2a1", fg_color="#002542").grid(row=0, column=1, sticky=customtkinter.W + customtkinter.E)
 
@@ -1186,11 +1253,7 @@ class my_gui:
 
         ## events menu content ##
 
-        self.new_frame = customtkinter.CTkFrame(self.root, width=600, height=650, )
-
-        ## edit events variable ##
-
-        self.event_1_variable, self.event_2_variable, self.event_3_variable, self.event_4_variable, self.event_5_variable = customtkinter.StringVar(value="Event 1"), customtkinter.StringVar(value="Event 2"), customtkinter.StringVar(value="Event 3"), customtkinter.StringVar(value="Event 4"), customtkinter.StringVar(value="Event 5")
+        self.new_frame = customtkinter.CTkFrame(self.root, width=600, height=700, )
 
 ##        ##------------------------------------------------------------------------------------------------------------
 
@@ -1360,6 +1423,10 @@ class my_gui:
             self.individual_6_event_5, self.individual_7_event_5, self.individual_8_event_5, self.individual_9_event_5, self.individual_10_event_5 = customtkinter.StringVar(value=data[205]), customtkinter.StringVar(value=data[206]), customtkinter.StringVar(value=data[207]), customtkinter.StringVar(value=data[208]), customtkinter.StringVar(value=data[209])
             self.individual_11_event_5, self.individual_12_event_5, self.individual_13_event_5, self.individual_14_event_5, self.individual_15_event_5 = customtkinter.StringVar(value=data[210]), customtkinter.StringVar(value=data[211]), customtkinter.StringVar(value=data[212]), customtkinter.StringVar(value=data[213]), customtkinter.StringVar(value=data[214])
             self.individual_16_event_5, self.individual_17_event_5, self.individual_18_event_5, self.individual_19_event_5, self.individual_20_event_5 = customtkinter.StringVar(value=data[215]), customtkinter.StringVar(value=data[216]), customtkinter.StringVar(value=data[217]), customtkinter.StringVar(value=data[218]), customtkinter.StringVar(value=data[219])
+
+            ## events verables ##
+
+            self.event_1_variable, self.event_2_variable, self.event_3_variable, self.event_4_variable, self.event_5_variable = customtkinter.StringVar(value=data[220]), customtkinter.StringVar(value=data[221]), customtkinter.StringVar(value=data[222]), customtkinter.StringVar(value=data[223]), customtkinter.StringVar(value=data[224])
 
     ## edit individuals content ##
 
